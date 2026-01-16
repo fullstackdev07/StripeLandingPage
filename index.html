@@ -1,0 +1,1671 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stripe Layout Clone - Fixed</title>
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        stripe: {
+                            dark: '#0a2540',
+                            text: '#425466',
+                            purple: '#635bff',
+                            lightPurple: '#a259ff',
+                            cyan: '#00d4ff',
+                            bg: '#f6f9fc',
+                            border: '#e6ebf1',
+                            dashed: '#cfd7df'
+                        }
+                    },
+                    boxShadow: {
+                        'stripe-card': '0 50px 100px -20px rgba(50,50,93,0.25), 0 30px 60px -30px rgba(0,0,0,0.3)',
+                    },
+                    skew: {
+                        '-12': '-12deg',
+                    },
+                    // --- NEW ANIMATION CONFIGURATION ---
+                    animation: {
+                        'gradient-flow': 'gradient-flow 6s ease infinite',
+                    },
+                    keyframes: {
+                        'gradient-flow': {
+                            '0%, 100%': {
+                                'background-position': '0% 50%'
+                            },
+                            '50%': {
+                                'background-position': '100% 50%'
+                            },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Background Pattern */
+        body {
+            background-color: #f6f9fc;
+            background-image: radial-gradient(#e3e8ee 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+    </style>
+</head>
+
+<body class="font-sans text-stripe-text overflow-x-hidden antialiased">
+
+    <!-- NAVIGATION COMPONENT -->
+    <nav class="relative w-full py-5 z-20">
+        <div class="max-w-[1080px] mx-auto px-6 flex items-center justify-between">
+            <div class="font-black text-2xl text-stripe-dark tracking-tighter cursor-pointer">
+                stripe
+            </div>
+            <div class="hidden md:flex gap-[30px]">
+                <a href="#"
+                    class="text-[15px] font-semibold text-stripe-dark hover:opacity-70 transition-opacity duration-200">Products</a>
+                <a href="#"
+                    class="text-[15px] font-semibold text-stripe-dark hover:opacity-70 transition-opacity duration-200">Solutions</a>
+                <a href="#"
+                    class="text-[15px] font-semibold text-stripe-dark hover:opacity-70 transition-opacity duration-200">Developers</a>
+                <a href="#"
+                    class="text-[15px] font-semibold text-stripe-dark hover:opacity-70 transition-opacity duration-200">Resources</a>
+                <a href="#"
+                    class="text-[15px] font-semibold text-stripe-dark hover:opacity-70 transition-opacity duration-200">Pricing</a>
+            </div>
+            <div class="flex items-center gap-5">
+                <a href="#"
+                    class="group flex items-center gap-2 text-[15px] font-semibold text-stripe-dark hover:opacity-70 transition-opacity duration-200 hidden sm:flex">
+                    <span>Sign in</span>
+                    <svg class="w-3 h-3 transform transition-transform group-hover:translate-x-0.5" fill="none"
+                        stroke="currentColor" stroke-width="3" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+                    </svg>
+                </a>
+
+                <a href="#"
+                    class="group flex items-center bg-[#a375ff] text-white px-4 py-2 rounded-full font-semibold text-[14px] hover:bg-[#534bd8] transition-colors duration-200">
+                    <span class="ml-1">Contact sales</span><svg class="w-3 h-3 ml-2 transform group-hover:translate-x-0.5 transition-transform" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"></path>
+                    </svg>
+                </a>
+            </div>
+
+        </div>
+    </nav>
+
+    <!-- HERO SECTION WRAPPER -->
+    <!-- HERO SECTION WRAPPER -->
+    <section class="relative pt-24 pb-[250px] z-0">
+        
+        <!-- BACKGROUND GRADIENT -->
+        <div class="absolute top-0 left-0 w-full h-[150%] pointer-events-none z-0 overflow-hidden">
+            <div class="absolute top-[550px] -left-[10%] w-[120%] h-[200px] -skew-y-12 opacity-90 animate-gradient-flow"
+                style="background: linear-gradient(115deg, #a259ff 0%, #00d4ff 40%, #00d4ff 60%, #a259ff 100%); background-size: 200% 200%;">
+            </div>
+        </div>
+
+        <div class="relative max-w-[1080px] mx-auto px-6 z-10">
+            
+            <!-- FLEX CONTAINER -->
+            <!-- 
+               Changed from Grid to Flex. 
+               md:flex-row = Side by side on desktop
+               items-start = Aligns content to the top
+               gap-16 = Space between columns
+            -->
+            <div class="flex flex-col md:flex-row gap-16 items-start">
+                
+                <!-- LEFT COLUMN: TEXT (45% Width) -->
+                <!-- w-full on mobile, 45% on desktop -->
+                <div class="w-full md:w-[45%] pt-4 relative z-10">
+                    <div class="inline-flex items-center gap-2.5 mb-8 font-bold text-stripe-purple text-sm">
+                        <span class="bg-[#635bff1a] text-stripe-purple text-xs px-2.5 py-1 rounded-xl font-semibold uppercase">
+                            Sessions 2026
+                        </span>
+                        <span class="text-[13px] font-semibold cursor-pointer hover:text-stripe-dark transition-colors">
+                            Early-bird registration now open <span class="ml-1">&rarr;</span>
+                        </span>
+                    </div>
+                    
+                    <h1 class="text-[42px] md:text-[60px] leading-[1.05] tracking-[-2px] text-stripe-dark font-extrabold mb-6">
+                        Unified, global payments to grow your revenue
+                    </h1>
+                    
+                    <p class="text-[18px] leading-[1.6] text-stripe-text max-w-[480px] mb-8">
+                        Accept payments online, in person, and around the world with a payments solution built for any business – from scaling startups to global enterprises.
+                    </p>
+                    
+                    <div class="flex flex-wrap gap-4 items-center">
+                        <a href="#" class="inline-flex items-center bg-[#a375ff] text-white font-semibold px-6 py-3 rounded-full hover:-translate-y-0.5 transition-transform duration-200 shadow-md group">
+                            Request an invite 
+                            <svg class="w-3 h-3 ml-2 transform group-hover:translate-x-0.5 transition-transform" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"></path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- RIGHT COLUMN: CARD (55% Width) -->
+                <!-- w-full on mobile, 55% on desktop -->
+                <div class="w-full md:w-[55%] relative z-10">
+                    <!-- 
+                       The Card Container
+                       max-w-[600px] allows it to be larger than before 
+                    -->
+                    <div class="bg-white rounded-lg shadow-stripe-card w-full max-w-[600px] ml-auto border border-black/5 overflow-hidden">
+                        
+                        <!-- Card Header -->
+                        <div class="px-8 py-5 border-b border-stripe-border flex justify-between text-sm font-semibold text-stripe-dark">
+                            <span>KAVHOLM</span>
+                            <span class="text-[#8898aa] font-normal">Cart &gt; Billing &gt; Confirmation</span>
+                        </div>
+                        
+                        <!-- Card Body -->
+                        <div class="p-8 grid grid-cols-1 sm:grid-cols-[1.2fr_1fr] gap-8">
+                            
+                            <!-- Form Side -->
+                            <div>
+                                <div class="mb-6">
+                                    <label class="block text-xs font-semibold text-[#8898aa] mb-2">Shipping Address</label>
+                                    <div class="border border-stripe-border rounded p-3 text-[13px] bg-white text-stripe-text leading-[1.5]">
+                                        <strong>Micaela Patel</strong><br>
+                                        The Warehouse, 7th Floor<br>
+                                        211 Old Street<br>
+                                        London EC1V 9NR
+                                    </div>
+                                </div>
+                                <div class="mb-2">
+                                    <label class="block text-xs font-semibold text-[#8898aa] mb-2">Pay with</label>
+                                    <div class="flex gap-3">
+                                        <div class="flex-1 border-2 border-stripe-dark bg-stripe-bg rounded px-3 py-2.5 text-xs font-semibold text-center cursor-pointer flex items-center justify-center gap-1">
+                                            <span class="text-lg leading-none">💳</span> Card
+                                        </div>
+                                        <div class="flex-1 border border-stripe-border rounded px-3 py-2.5 text-xs font-semibold text-center cursor-pointer hover:bg-gray-50 flex items-center justify-center">
+                                            Klarna
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Product Side -->
+                            <div>
+                                <div class="bg-stripe-bg h-[140px] rounded mb-5 flex items-center justify-center text-[50px]">
+                                    🪑
+                                </div>
+                                <div class="font-semibold text-[13px] mb-2 text-stripe-dark">Betala Wooden Chair</div>
+                                <div class="flex justify-between text-xs text-[#8898aa] mb-2">
+                                    <span>Subtotal</span><span>£240.00</span>
+                                </div>
+                                <div class="flex justify-between text-xs text-[#8898aa] mb-2">
+                                    <span>VAT (20%)</span><span>£48.00</span>
+                                </div>
+                                <div class="flex justify-between text-sm font-bold text-stripe-dark mt-4 pt-4 border-t border-stripe-border">
+                                    <span>Total</span><span>£288.00</span>
+                                </div>
+                                
+                                <button class="w-full bg-stripe-dark text-white border-0 py-3 rounded font-semibold mt-6 text-sm cursor-pointer hover:bg-[#1a3b5c] transition-colors shadow-lg">
+                                    Pay £288.00
+                                </button>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FEATURES SECTION COMPONENT -->
+    <section class="relative pb-[100px] z-10 mt-[50px] bg-transparent bg-[#ffffff]">
+        <div class="max-w-[1080px] mx-auto px-6 ">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-[30px]">
+                <div
+                    class="relative md:pl-[30px] md:first:pl-0 md:border-l md:border-dashed md:border-stripe-dashed md:first:border-none">
+                    <div class="w-10 h-10 mb-5 flex items-center">
+                        <svg viewBox="0 0 40 40" class="w-full h-full">
+                            <circle cx="20" cy="20" r="20" fill="#00d4ff" />
+                            <path d="M20 10a5 5 0 100 10 5 5 0 000-10zM12 30c0-4.4 3.6-8 8-8s8 3.6 8 8" stroke="white"
+                                stroke-width="2" fill="none" />
+                            <circle cx="28" cy="12" r="5" fill="#635bff" />
+                            <path d="M26 12l1.5 1.5 2.5-2.5" stroke="white" stroke-width="1.5" fill="none" />
+                        </svg>
+                    </div>
+                    <h3 class="text-[15px] font-bold text-stripe-dark mb-3 tracking-tight">Convert more customers</h3>
+                    <p class="text-[15px] leading-relaxed text-stripe-text font-normal">Increase conversion with
+                        built-in optimisations, access to 100+ payment methods, and one-click checkout.</p>
+                </div>
+                <div class="relative md:pl-[30px] md:border-l md:border-dashed md:border-stripe-dashed">
+                    <div class="w-10 h-10 mb-5 flex items-center">
+                        <svg viewBox="0 0 40 40" class="w-full h-full">
+                            <circle cx="20" cy="20" r="18" stroke="#00d4ff" stroke-width="2" />
+                            <path d="M20 2v36M2 20h36" stroke="#00d4ff" stroke-width="2" />
+                            <path d="M10 5a25 25 0 0120 0M10 35a25 25 0 0020 0" stroke="#00d4ff" stroke-width="1.5"
+                                fill="none" />
+                            <circle cx="30" cy="30" r="6" fill="#635bff" />
+                        </svg>
+                    </div>
+                    <h3 class="text-[15px] font-bold text-stripe-dark mb-3 tracking-tight">Global reach, local
+                        experience</h3>
+                    <p class="text-[15px] leading-relaxed text-stripe-text font-normal">Expand to new markets faster by
+                        launching payment methods and presenting in local currencies.</p>
+                </div>
+                <div class="relative md:pl-[30px] md:border-l md:border-dashed md:border-stripe-dashed">
+                    <div class="w-10 h-10 mb-5 flex items-center">
+                        <svg viewBox="0 0 40 40" class="w-full h-full">
+                            <rect x="5" y="10" width="24" height="16" rx="2" fill="#00d4ff" />
+                            <path d="M5 14h24" stroke="white" stroke-width="1" />
+                            <circle cx="28" cy="28" r="8" fill="white" stroke="#635bff" stroke-width="2" />
+                            <path d="M34 34l4 4" stroke="#635bff" stroke-width="3" stroke-linecap="round" />
+                        </svg>
+                    </div>
+                    <h3 class="text-[15px] font-bold text-stripe-dark mb-3 tracking-tight">Less fraud, more revenue</h3>
+                    <p class="text-[15px] leading-relaxed text-stripe-text font-normal">Automatically decrease fraud and
+                        improve authorisation rates using Stripe Radar and Authorization Boost.</p>
+                </div>
+                <div class="relative md:pl-[30px] md:border-l md:border-dashed md:border-stripe-dashed">
+                    <div class="w-10 h-10 mb-5 flex items-center">
+                        <svg viewBox="0 0 40 40" class="w-full h-full">
+                            <path d="M10 10l20 10-20 10z" fill="#00d4ff" />
+                            <path d="M15 10l20 10-20 10z" fill="#635bff" style="opacity:0.7" />
+                        </svg>
+                    </div>
+                    <h3 class="text-[15px] font-bold text-stripe-dark mb-3 tracking-tight">Move faster and lower costs
+                    </h3>
+                    <p class="text-[15px] leading-relaxed text-stripe-text font-normal">Save time and engineering
+                        resources through increased developer productivity.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PAYMENT PERFORMANCE SECTION -->
+    <section class="relative pt-[120px] pb-[100px] z-10">
+        <div class="absolute inset-0 w-full h-full -skew-y-6 origin-top-left bg-[#f6f9fc] -z-10 translate-y-24">
+            <div class="absolute -top-[10px] left-0 w-full h-[60px] pointer-events-none">
+                <div class="max-w-[1080px] mx-auto px-6 relative h-full">
+                    <div class="absolute bottom-6 -left-[100px] w-[500px] h-[30px] bg-stripe-lightPurple opacity-90">
+                    </div>
+                    <div
+                        class="absolute bottom-10 -left-[40px] w-[250px] h-[30px] bg-stripe-cyan mix-blend-multiply opacity-90">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="max-w-[1080px] mx-auto px-6 relative">
+
+            <!-- THE CARD -->
+            <div
+                class="bg-white rounded-xl shadow-[0_50px_100px_-20px_rgba(50,50,93,0.25),0_30px_60px_-30px_rgba(0,0,0,0.3)] overflow-hidden border-t-[4px] border-[#635bff] relative z-20">
+                <div class="grid grid-cols-1 md:grid-cols-2">
+
+                    <!-- Left Column: Content -->
+                    <div class="p-10 md:p-14 z-20 relative bg-white">
+                        <h3 class="text-[24px] font-bold text-[#0a2540] mb-4 tracking-tight">Advanced payments
+                            capabilities</h3>
+                        <p class="text-[16px] leading-relaxed text-[#425466] mb-8 font-medium">Use Stripe to easily
+                            customise your payments setup with more accessible, enterprise-grade capabilities.</p>
+
+                        <ul class="space-y-4 mb-8">
+                            <li class="flex items-start">
+                                <div
+                                    class="mt-0.5 mr-3 flex-shrink-0 w-5 h-5 rounded-full bg-[#635bff]/10 text-[#635bff] flex items-center justify-center">
+                                    <svg class="w-3 h-3" fill="none" stroke="currentColor" stroke-width="3"
+                                        viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path>
+                                    </svg></div>
+                                <span class="text-[15px] text-[#425466] font-medium">Advanced card acquiring, including
+                                    incremental auth, multicapture, and more</span>
+                            </li>
+                            <li class="flex items-start">
+                                <div
+                                    class="mt-0.5 mr-3 flex-shrink-0 w-5 h-5 rounded-full bg-[#635bff]/10 text-[#635bff] flex items-center justify-center">
+                                    <svg class="w-3 h-3" fill="none" stroke="currentColor" stroke-width="3"
+                                        viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path>
+                                    </svg></div>
+                                <span class="text-[15px] text-[#425466] font-medium">Local acquiring in global
+                                    markets</span>
+                            </li>
+                            <li class="flex items-start">
+                                <div
+                                    class="mt-0.5 mr-3 flex-shrink-0 w-5 h-5 rounded-full bg-[#635bff]/10 text-[#635bff] flex items-center justify-center">
+                                    <svg class="w-3 h-3" fill="none" stroke="currentColor" stroke-width="3"
+                                        viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path>
+                                    </svg></div>
+                                <span class="text-[15px] text-[#425466] font-medium">Access to regional debit
+                                    networks</span>
+                            </li>
+                            <li class="flex items-start">
+                                <div
+                                    class="mt-0.5 mr-3 flex-shrink-0 w-5 h-5 rounded-full bg-[#635bff]/10 text-[#635bff] flex items-center justify-center">
+                                    <svg class="w-3 h-3" fill="none" stroke="currentColor" stroke-width="3"
+                                        viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path>
+                                    </svg></div>
+                                <span class="text-[15px] text-[#425466] font-medium">Ability to pass product line-item
+                                    data</span>
+                            </li>
+                            <li class="flex items-start">
+                                <div
+                                    class="mt-0.5 mr-3 flex-shrink-0 w-5 h-5 rounded-full bg-[#635bff]/10 text-[#635bff] flex items-center justify-center">
+                                    <svg class="w-3 h-3" fill="none" stroke="currentColor" stroke-width="3"
+                                        viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path>
+                                    </svg></div>
+                                <span class="text-[15px] text-[#425466] font-medium">Support for multiprocessor
+                                    setups</span>
+                            </li>
+                            <li class="flex items-start">
+                                <div
+                                    class="mt-0.5 mr-3 flex-shrink-0 w-5 h-5 rounded-full bg-[#635bff]/10 text-[#635bff] flex items-center justify-center">
+                                    <svg class="w-3 h-3" fill="none" stroke="currentColor" stroke-width="3"
+                                        viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path>
+                                    </svg></div>
+                                <span class="text-[15px] text-[#425466] font-medium">Manage all lines of business or
+                                    subsidiaries across multiple Stripe accounts with <a href="#"
+                                        class="text-[#635bff] hover:text-[#0a2540] transition-colors">Organisations</a></span>
+                            </li>
+                        </ul>
+                        <a href="#"
+                            class="inline-flex items-center bg-[#635bff] text-white px-5 py-2 rounded-full font-bold text-[15px] hover:bg-[#4b45c6] transition-all duration-200 shadow-md hover:shadow-lg">Contact
+                            sales <span class="ml-1">&rarr;</span></a>
+                    </div>
+
+                    <!-- Right Column: JS CANVAS GLOBE -->
+                    <div
+                        class="relative min-h-[500px] h-full overflow-hidden flex items-end justify-end bg-gradient-to-br from-white via-[#f3f6fd] to-[#eff3fc]">
+
+                        <!-- Background Glow (The Blue Area) -->
+                        <!-- We keep this to define the visual area, aligned bottom-right -->
+                        <div
+                            class="absolute bottom-0 right-0 w-[85%] h-[85%] bg-[#635bff] rounded-tl-full blur-[100px] opacity-[0.08] pointer-events-none">
+                        </div>
+
+                        <!-- Canvas Container -->
+                        <!-- We use absolute positioning to ensure the canvas covers the area but we control the drawing position in JS -->
+                        <canvas id="stripeGlobeCanvas" class="absolute inset-0 w-full h-full z-10"></canvas>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- 
+      SECTION: TESTIMONIALS 
+      - Rising Diagonal Top Transition
+      - Stripe Style Review Cards
+    -->
+    <section class="relative bg-white pt-24 pb-32 z-10 mt-[200px]">
+
+        <!-- 
+           THE RISING DIAGONAL TRANSITION
+           This white block is skewed to create the "rise from left to right" effect 
+           over the previous section's background.
+        -->
+        <div
+            class="absolute top-[-80px] right-0 w-full h-[220px] bg-white -skew-y-6 origin-bottom-right z-10 -mt-[140px]">
+            <div class="absolute -top-[10px] right-0 w-full h-[60px] pointer-events-none">
+                <div class="w-full mx-[10px] px-6 relative h-full">
+                    <div class="absolute -bottom-1 right-0 w-[250px] h-[30px]  bg-stripe-lightPurple opacity-90"></div>
+                    <div
+                        class="absolute bottom-[10px] right-0 w-[500px] h-[40px] bg-stripe-cyan mix-blend-multiply  opacity-90">
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="max-w-[1080px] mx-auto px-6 relative z-20">
+
+            <!-- HEADER with Navigation Arrows -->
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+                <div class="max-w-2xl">
+                    <h2 class="text-[32px] font-bold text-[#0a2540] tracking-tight leading-tight">
+                        Notre succès est le succès de nos clients
+                    </h2>
+                    <p class="text-[17px] text-[#425466] mt-4 leading-relaxed font-medium">
+                        Découvrez comment des entrepreneurs transforment leur productivité grâce à nos diagnostics IA.
+                    </p>
+                </div>
+
+                <!-- Circular Navigation Arrows -->
+                <div class="flex gap-4">
+                    <button
+                        class="w-10 h-10 rounded-full border border-[#e6ebf1] flex items-center justify-center text-[#635bff] hover:bg-[#f6f9fc] hover:shadow-sm transition-all cursor-pointer">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"></path>
+                        </svg>
+                    </button>
+                    <button
+                        class="w-10 h-10 rounded-full border border-[#e6ebf1] flex items-center justify-center text-[#635bff] hover:bg-[#f6f9fc] hover:shadow-sm transition-all cursor-pointer">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- CARDS GRID -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+
+                <!-- Card 1: Jean Dupont -->
+                <div
+                    class="bg-[#f6f9fc] p-8 rounded-xl flex flex-col h-full transition-transform duration-300 hover:-translate-y-1">
+                    <!-- Avatar & Info -->
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="w-12 h-12 rounded-full overflow-hidden border-2 border-white shadow-sm">
+                            <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Felix" alt="Jean Dupont"
+                                class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <div class="font-bold text-[#0a2540] text-[15px]">Jean Dupont</div>
+                            <div class="text-[13px] text-[#425466] font-medium">Directeur d’une PME</div>
+                        </div>
+                    </div>
+
+                    <!-- Stars -->
+                    <div class="flex gap-1 mb-5 text-[#635bff]">
+                        <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20">
+                            <path
+                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                        </svg>
+                        <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20">
+                            <path
+                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                        </svg>
+                        <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20">
+                            <path
+                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                        </svg>
+                        <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20">
+                            <path
+                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                        </svg>
+                        <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20">
+                            <path
+                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                        </svg>
+                    </div>
+
+                    <!-- Quote -->
+                    <p class="text-[15px] leading-7 text-[#425466] flex-grow">
+                        “Ce diagnostic a été un vrai déclic ! En quelques jours, nous avons lancé des automatisations
+                        qui nous font gagner plus de 10 heures de travail répétitif par semaine. 🕒💪”
+                    </p>
+                </div>
+
+                <!-- Card 2: Marie Durant -->
+                <div
+                    class="bg-[#f6f9fc] p-8 rounded-xl flex flex-col h-full transition-transform duration-300 hover:-translate-y-1">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="w-12 h-12 rounded-full overflow-hidden border-2 border-white shadow-sm">
+                            <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Aneka&backgroundColor=e6ebf1"
+                                alt="Marie Durant" class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <div class="font-bold text-[#0a2540] text-[15px]">Marie Durant</div>
+                            <div class="text-[13px] text-[#425466] font-medium">Fondatrice E-commerce</div>
+                        </div>
+                    </div>
+
+                    <div class="flex gap-1 mb-5 text-[#635bff]">
+                        <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20">
+                            <path
+                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                        </svg>
+                        <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20">
+                            <path
+                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                        </svg>
+                        <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20">
+                            <path
+                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                        </svg>
+                        <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20">
+                            <path
+                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                        </svg>
+                        <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20">
+                            <path
+                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                        </svg>
+                    </div>
+
+                    <p class="text-[15px] leading-7 text-[#425466] flex-grow">
+                        “J’étais sceptique au début car je n’y connaissais rien en IA… Mais le plan d’action était
+                        tellement clair et adapté à mon activité que nous avons pu déployer nos premières
+                        automatisations en un temps record. 🚀”
+                    </p>
+                </div>
+
+                <!-- Card 3: Alex Martin -->
+                <div
+                    class="bg-[#f6f9fc] p-8 rounded-xl flex flex-col h-full transition-transform duration-300 hover:-translate-y-1">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="w-12 h-12 rounded-full overflow-hidden border-2 border-white shadow-sm">
+                            <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Caleb&backgroundColor=e6ebf1"
+                                alt="Alex Martin" class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <div class="font-bold text-[#0a2540] text-[15px]">Alex Martin</div>
+                            <div class="text-[13px] text-[#425466] font-medium">CEO Startup Tech</div>
+                        </div>
+                    </div>
+
+                    <div class="flex gap-1 mb-5 text-[#635bff]">
+                        <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20">
+                            <path
+                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                        </svg>
+                        <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20">
+                            <path
+                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                        </svg>
+                        <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20">
+                            <path
+                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                        </svg>
+                        <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20">
+                            <path
+                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                        </svg>
+                        <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20">
+                            <path
+                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                        </svg>
+                    </div>
+
+                    <p class="text-[15px] leading-7 text-[#425466] flex-grow">
+                        “Grâce au Diagnostic IA Business, j’ai découvert des opportunités que je n’aurais jamais
+                        imaginées. Résultat : une augmentation significative de la productivité de mon équipe en un
+                        mois. ✨”
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="relative py-24 bg-transparent z-10">
+        <div class="max-w-[800px] mx-auto px-6">
+
+            <!-- Section Header -->
+            <div class="mb-12">
+                <h2 class="text-[32px] font-bold text-[#0a2540] tracking-tight mb-4">
+                    Questions Fréquentes
+                </h2>
+                <p class="text-[17px] text-[#425466]">
+                    Tout ce que vous devez savoir avant de lancer votre diagnostic.
+                </p>
+            </div>
+
+            <!-- FAQ Container -->
+            <div class="space-y-4" id="faq-accordion">
+
+                <!-- Question 1 -->
+                <div class="group">
+                    <button
+                        class="faq-btn w-full text-left bg-[#f6f9fc] hover:bg-[#eef2f6] p-6 rounded-lg flex items-center justify-between transition-colors duration-200 focus:outline-none">
+                        <span class="text-[16px] font-semibold text-[#0a2540]">Je ne suis pas du tout technique, est-ce
+                            que ce diagnostic est fait pour moi ?</span>
+                        <!-- Chevron Icon -->
+                        <span
+                            class="ml-6 flex-shrink-0 text-[#635bff] bg-white rounded-full w-8 h-8 flex items-center justify-center shadow-sm transform transition-transform duration-300 group-aria-expanded:rotate-180">
+                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.5"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </span>
+                    </button>
+                    <!-- Answer -->
+                    <div class="faq-content overflow-hidden max-h-0 transition-all duration-300 ease-in-out">
+                        <div class="p-6 pt-2 text-[15px] leading-relaxed text-[#425466]">
+                            Absolument ! Ce service est conçu pour les non-spécialistes. Tout est expliqué clairement,
+                            sans jargon technique, et chaque recommandation est simple à comprendre et à appliquer, même
+                            sans connaissances en IA.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Question 2 -->
+                <div class="group">
+                    <button
+                        class="faq-btn w-full text-left bg-[#f6f9fc] hover:bg-[#eef2f6] p-6 rounded-lg flex items-center justify-between transition-colors duration-200 focus:outline-none">
+                        <span class="text-[16px] font-semibold text-[#0a2540]">Mon entreprise est petite, l’IA
+                            n’est-elle pas réservée aux grands groupes ?</span>
+                        <span
+                            class="ml-6 flex-shrink-0 text-[#635bff] bg-white rounded-full w-8 h-8 flex items-center justify-center shadow-sm transform transition-transform duration-300">
+                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.5"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </span>
+                    </button>
+                    <div class="faq-content overflow-hidden max-h-0 transition-all duration-300 ease-in-out">
+                        <div class="p-6 pt-2 text-[15px] leading-relaxed text-[#425466]">
+                            Pas du tout. L’IA peut profiter aux entreprises de toute taille. Au contraire, pour une
+                            petite structure, automatiser certaines tâches peut libérer un temps précieux et vous
+                            permettre de faire plus avec moins de ressources.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Question 3 -->
+                <div class="group">
+                    <button
+                        class="faq-btn w-full text-left bg-[#f6f9fc] hover:bg-[#eef2f6] p-6 rounded-lg flex items-center justify-between transition-colors duration-200 focus:outline-none">
+                        <span class="text-[16px] font-semibold text-[#0a2540]">Combien de temps devrai-je y consacrer
+                            ?</span>
+                        <span
+                            class="ml-6 flex-shrink-0 text-[#635bff] bg-white rounded-full w-8 h-8 flex items-center justify-center shadow-sm transform transition-transform duration-300">
+                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.5"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </span>
+                    </button>
+                    <div class="faq-content overflow-hidden max-h-0 transition-all duration-300 ease-in-out">
+                        <div class="p-6 pt-2 text-[15px] leading-relaxed text-[#425466]">
+                            Très peu. 1 heure suffit pour le rendez-vous de diagnostic initial. Nous nous occupons
+                            ensuite d’analyser vos informations et de préparer vos recommandations. Vous gagnez du temps
+                            : on fait le travail en coulisses pendant que vous restez concentré sur votre business.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Question 4 -->
+                <div class="group">
+                    <button
+                        class="faq-btn w-full text-left bg-[#f6f9fc] hover:bg-[#eef2f6] p-6 rounded-lg flex items-center justify-between transition-colors duration-200 focus:outline-none">
+                        <span class="text-[16px] font-semibold text-[#0a2540]">Quel est l’investissement nécessaire
+                            ?</span>
+                        <span
+                            class="ml-6 flex-shrink-0 text-[#635bff] bg-white rounded-full w-8 h-8 flex items-center justify-center shadow-sm transform transition-transform duration-300">
+                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.5"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </span>
+                    </button>
+                    <div class="faq-content overflow-hidden max-h-0 transition-all duration-300 ease-in-out">
+                        <div class="p-6 pt-2 text-[15px] leading-relaxed text-[#425466]">
+                            Le Diagnostic IA Business est proposé à un tarif accessible (avec un prix de lancement
+                            spécialement pensé pour les entrepreneurs). Considérez-le comme un investissement vite
+                            rentabilisé : les heures gagnées et l’efficacité accrue grâce à nos recommandations valent
+                            bien plus que le coût du diagnostic. (Demandez notre brochure tarifaire pour plus de
+                            détails.)
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- 
+      SECTION 7: CTA (Matched to "Stripe named a Leader" UI)
+    -->
+    <section class="relative py-24 bg-[#f6f9fc] border-[#e6ebf1]">
+        <div class="max-w-[1080px] mx-auto px-6">
+
+            <div class="max-w-3xl">
+                <!-- Headline -->
+                <h2 class="text-[32px] md:text-[36px] font-bold text-[#0a2540] mb-6 tracking-tight leading-[1.2]">
+                    Prêt à booster votre efficacité grâce à l’IA ? 🎯
+                </h2>
+
+                <!-- Body Text -->
+                <p class="text-[17px] leading-relaxed text-[#425466] mb-8">
+                    Faites le premier pas vers une entreprise plus productive et plus sereine. Cliquez ci-dessous pour
+                    choisir votre créneau : notre expert vous accompagnera pour transformer vos idées en actions
+                    concrètes.
+                </p>
+
+                <!-- Purple Pill Button -->
+                <a href="#"
+                    class="inline-flex items-center justify-center bg-[#a259ff] text-white px-6 py-2.5 rounded-full font-semibold text-[15px] hover:bg-[#8f4ce6] transition-all duration-200 shadow-sm hover:shadow-md group">
+                    Réservez votre Diagnostic IA Business dès maintenant
+                    <!-- Chevron Icon -->
+                    <svg class="w-3 h-3 ml-2 transform group-hover:translate-x-0.5 transition-transform" fill="none"
+                        stroke="currentColor" stroke-width="3" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"></path>
+                    </svg>
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 
+      SECTION 8: NOTRE EXPERTISE 
+    -->
+    <section class="relative py-24 bg-white border-t border-[#e6ebf1]">
+        <div class="max-w-[1080px] mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-start">
+
+                <!-- LEFT COLUMN: TEXT CONTENT -->
+                <div class="pt-4">
+                    <h2 class="text-[32px] font-bold text-[#0a2540] mb-6 tracking-tight leading-[1.2]">
+                        Nos experts travaillent avec les outils IA les plus performants
+                    </h2>
+
+                    <p class="text-[17px] text-[#425466] leading-relaxed mb-6">
+                        Nous sélectionnons pour vous les technologies les mieux adaptées à vos besoins, avec une
+                        attention particulière portée à la <span class="text-[#635bff] font-medium">simplicité
+                            d’usage</span>, à l’intégration rapide et à l’impact business.
+                    </p>
+
+                    <a href="#"
+                        class="inline-flex items-center text-[#635bff] font-semibold hover:text-[#0a2540] transition-colors mb-12 group">
+                        Voir la liste complète des outils
+                        <svg class="w-3 h-3 ml-2 transform group-hover:translate-x-1 transition-transform" fill="none"
+                            stroke="currentColor" stroke-width="3" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"></path>
+                        </svg>
+                    </a>
+
+                    <!-- Bottom Block with Purple Line (Matches "Access 100+ payment methods" style) -->
+                    <div class="border-l-[3px] border-[#635bff] pl-5">
+                        <p class="text-[15px] font-medium text-[#425466] leading-relaxed">
+                            <strong class="text-[#0a2540] block mb-1">Accompagnement clé en main</strong>
+                            Vous n’avez pas à maîtriser ces outils complexes. Nous vous guidons étape par étape pour en
+                            tirer le meilleur, sans friction technique.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- RIGHT COLUMN: UI CARD MOCKUP -->
+                <div class="relative">
+                    <!-- The Card -->
+                    <div
+                        class="bg-white rounded-lg shadow-[0_50px_100px_-20px_rgba(50,50,93,0.25),0_30px_60px_-30px_rgba(0,0,0,0.3)] border border-[#e6ebf1] p-8 max-w-lg ml-auto">
+
+                        <!-- Card Header -->
+                        <h4 class="text-[15px] font-bold text-[#0a2540] mb-8">
+                            Configuration de votre Stack IA
+                        </h4>
+
+                        <!-- Slider UI -->
+                        <div class="mb-8">
+                            <div class="flex justify-between items-center mb-3">
+                                <span class="text-[13px] font-bold text-[#0a2540]">Potentiel d'automatisation</span>
+                            </div>
+                            <div class="relative h-6 flex items-center">
+                                <span class="text-[12px] font-bold text-[#0a2540] absolute left-0">0%</span>
+                                <!-- Track -->
+                                <div class="w-full h-1.5 bg-[#e3e8ee] rounded-full mx-8 relative">
+                                    <!-- Purple Fill -->
+                                    <div class="absolute left-0 top-0 h-full bg-[#635bff] w-[85%] rounded-full"></div>
+                                    <!-- Handle -->
+                                    <div
+                                        class="absolute top-1/2 -translate-y-1/2 left-[85%] w-4 h-4 bg-white border border-[#e3e8ee] shadow-sm rounded-full cursor-pointer hover:scale-110 transition-transform">
+                                    </div>
+                                </div>
+                                <span class="text-[12px] font-bold text-[#0a2540] absolute right-0">100%</span>
+                            </div>
+                        </div>
+
+                        <!-- Tool Groups (Mocking "Treatment" & "Control") -->
+                        <div class="space-y-6">
+
+                            <!-- Group 1: LLMs -->
+                            <div>
+                                <div class="flex justify-between items-center mb-3">
+                                    <span class="text-[13px] font-bold text-[#425466]">Modèles de Langage (LLMs)</span>
+                                    <div class="flex gap-2 text-[#8898aa]">
+                                        <svg class="w-4 h-4 cursor-pointer hover:text-[#0a2540]" fill="none"
+                                            stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z">
+                                            </path>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="flex flex-wrap gap-2">
+                                    <!-- Tool Pill -->
+                                    <div
+                                        class="flex items-center gap-2 border border-[#e6ebf1] rounded px-2 py-1.5 bg-white">
+                                        <div class="w-3 h-3 rounded-full bg-green-500"></div>
+                                        <span class="text-[13px] font-medium text-[#425466]">ChatGPT</span>
+                                    </div>
+                                    <div
+                                        class="flex items-center gap-2 border border-[#e6ebf1] rounded px-2 py-1.5 bg-white">
+                                        <div class="w-3 h-3 rounded-full bg-orange-400"></div>
+                                        <span class="text-[13px] font-medium text-[#425466]">Claude</span>
+                                    </div>
+                                    <div
+                                        class="flex items-center gap-2 border border-[#e6ebf1] rounded px-2 py-1.5 bg-white">
+                                        <div class="w-3 h-3 rounded-full bg-blue-500"></div>
+                                        <span class="text-[13px] font-medium text-[#425466]">Gemini</span>
+                                    </div>
+                                    <div
+                                        class="flex items-center gap-2 border border-[#e6ebf1] rounded px-2 py-1.5 bg-white">
+                                        <div class="w-3 h-3 rounded-full bg-purple-500"></div>
+                                        <span class="text-[13px] font-medium text-[#425466]">Midjourney</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Group 2: Automation -->
+                            <div>
+                                <div class="flex justify-between items-center mb-3">
+                                    <span class="text-[13px] font-bold text-[#425466]">Workflow & Automation</span>
+                                </div>
+                                <div class="flex flex-wrap gap-2">
+                                    <div
+                                        class="flex items-center gap-2 border border-[#e6ebf1] rounded px-2 py-1.5 bg-white">
+                                        <div class="w-3 h-3 rounded-full bg-purple-700"></div>
+                                        <span class="text-[13px] font-medium text-[#425466]">Make</span>
+                                    </div>
+                                    <div
+                                        class="flex items-center gap-2 border border-[#e6ebf1] rounded px-2 py-1.5 bg-white">
+                                        <div class="w-3 h-3 rounded-full bg-orange-600"></div>
+                                        <span class="text-[13px] font-medium text-[#425466]">Zapier</span>
+                                    </div>
+                                    <div
+                                        class="flex items-center gap-2 border border-[#e6ebf1] rounded px-2 py-1.5 bg-white">
+                                        <div class="w-3 h-3 rounded-full bg-red-500"></div>
+                                        <span class="text-[13px] font-medium text-[#425466]">n8n</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <!-- Button -->
+                        <div class="mt-8 flex justify-end">
+                            <button
+                                class="bg-[#635bff] text-white text-[13px] font-bold px-4 py-2 rounded shadow-md hover:bg-[#4b45c6] transition-colors">
+                                Lancer l'intégration
+                            </button>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 
+      SECTION 9: SOLUTIONS CAROUSEL
+    -->
+    <section class="relative py-24 bg-trnasparent overflow-hidden border-t border-[#e6ebf1]">
+        <div class="max-w-[1080px] mx-auto px-6 relative bg-white">
+
+            <!-- SECTION HEADER & CONTROLS -->
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+                <div class="max-w-2xl">
+                    <h2 class="text-[32px] font-bold text-[#0a2540] mb-4 tracking-tight leading-tight">
+                        Solutions IA que nous pouvons mettre en place
+                    </h2>
+                    <p class="text-[17px] text-[#425466] leading-relaxed">
+                        Voici quelques exemples concrets de solutions pour automatiser, simplifier ou accélérer votre
+                        activité.
+                    </p>
+                </div>
+
+                <!-- Navigation Arrows -->
+                <div class="flex gap-3">
+                    <button id="slideLeft"
+                        class="w-8 h-8 rounded-full bg-[#f6f9fc] text-[#425466] hover:text-[#0a2540] hover:bg-[#e6ebf1] flex items-center justify-center transition-colors cursor-pointer disabled:opacity-50">
+                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.5"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"></path>
+                        </svg>
+                    </button>
+                    <button id="slideRight"
+                        class="w-8 h-8 rounded-full bg-[#f6f9fc] text-[#425466] hover:text-[#0a2540] hover:bg-[#e6ebf1] flex items-center justify-center transition-colors cursor-pointer">
+                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.5"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- CAROUSEL CONTAINER -->
+            <!-- snap-x for snapping, scroll-smooth for behavior -->
+            <div id="cardCarousel"
+                class="flex overflow-x-auto gap-8 pb-10 snap-x snap-mandatory scroll-smooth hide-scrollbar"
+                style="-ms-overflow-style: none; scrollbar-width: none;">
+
+                <!-- CARD 1: Flux de prospects (Visual: Form/Lead) -->
+                <div class="min-w-[300px] md:min-w-[380px] snap-center">
+                    <div
+                        class="group h-full bg-white rounded-lg shadow-[0_2px_5px_rgba(50,50,93,0.1),0_1px_1px_rgba(0,0,0,0.07)] hover:shadow-[0_15px_35px_rgba(50,50,93,0.1),0_5px_15px_rgba(0,0,0,0.07)] transition-all duration-300 overflow-hidden flex flex-col cursor-pointer">
+                        <!-- Top Visual -->
+                        <div
+                            class="h-[200px] group-hover:h-[140px] transition-all duration-300 ease-in-out bg-[#f6f9fc] p-6 flex flex-col justify-center relative border-b border-[#e6ebf1]">
+                            <div
+                                class="bg-white rounded border border-[#e6ebf1] p-3 shadow-sm w-[70%] mx-auto transform group-hover:scale-90 transition-transform duration-300">
+                                <div class="flex items-center gap-2 mb-2">
+                                    <div class="w-6 h-6 rounded-full bg-blue-100"></div>
+                                    <div class="h-2 w-20 bg-gray-100 rounded"></div>
+                                </div>
+                                <div class="space-y-1">
+                                    <div class="h-2 w-full bg-gray-50 rounded"></div>
+                                    <div class="h-2 w-3/4 bg-gray-50 rounded"></div>
+                                </div>
+                                <div class="mt-2 h-16 bg-blue-50 rounded w-full"></div>
+                            </div>
+                        </div>
+                        <!-- Bottom Content -->
+                        <div class="p-6 flex flex-col flex-grow bg-white relative">
+                            <div class="flex items-center gap-2 mb-3">
+                                <span class="text-[#00d4ff]"><svg class="w-4 h-4" fill="currentColor"
+                                        viewBox="0 0 20 20">
+                                        <path d="M2 10a8 8 0 018-8v8h8a8 8 0 11-16 0z"></path>
+                                        <path d="M12 2.252A8.014 8.014 0 0117.748 8H12V2.252z"></path>
+                                    </svg></span>
+                                <span class="text-[13px] font-bold text-[#425466]">Marketing</span>
+                            </div>
+                            <h3 class="text-[19px] font-bold text-[#0a2540] mb-3">Pilotage automatique des médias
+                                sociaux</h3>
+                            <p class="text-[15px] text-[#425466] leading-relaxed">
+                                Planifiez, publiez et recyclez automatiquement vos contenus sur tous les réseaux, sans
+                                tâche manuelle répétitive.
+                            </p>
+                            <!-- Learn More Button -->
+                            <div
+                                class="mt-auto pt-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform translate-y-2 group-hover:translate-y-0">
+                                <span class="text-[#635bff] font-bold text-[13px] flex items-center">
+                                    En savoir plus <svg class="w-3 h-3 ml-1" fill="none" stroke="currentColor"
+                                        stroke-width="3" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"></path>
+                                    </svg>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CARD 7: SEO (Visual: Search Graph) -->
+                <div class="min-w-[300px] md:min-w-[380px] snap-center">
+                    <div
+                        class="group h-full bg-white rounded-lg shadow-[0_2px_5px_rgba(50,50,93,0.1),0_1px_1px_rgba(0,0,0,0.07)] hover:shadow-[0_15px_35px_rgba(50,50,93,0.1),0_5px_15px_rgba(0,0,0,0.07)] transition-all duration-300 overflow-hidden flex flex-col cursor-pointer">
+                        <div
+                            class="h-[200px] group-hover:h-[140px] transition-all duration-300 ease-in-out bg-[#f6f9fc] p-6 flex flex-col justify-center relative border-b border-[#e6ebf1]">
+                            <div
+                                class="bg-white rounded border border-[#e6ebf1] p-4 shadow-sm w-[80%] mx-auto transform group-hover:scale-90 transition-transform duration-300 flex items-center gap-3">
+                                <div
+                                    class="w-8 h-8 rounded-full bg-green-100 flex items-center justify-center text-green-600 font-bold text-xs">
+                                    98</div>
+                                <div class="flex-1 space-y-1">
+                                    <div class="h-2 w-full bg-gray-100 rounded"></div>
+                                    <div class="h-2 w-2/3 bg-green-100 rounded"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow bg-white relative">
+                            <div class="flex items-center gap-2 mb-3">
+                                <span class="text-[#24b47e]"><svg class="w-4 h-4" fill="currentColor"
+                                        viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd"
+                                            d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
+                                            clip-rule="evenodd"></path>
+                                    </svg></span>
+                                <span class="text-[13px] font-bold text-[#425466]">SEO & Traffic</span>
+                            </div>
+                            <h3 class="text-[19px] font-bold text-[#0a2540] mb-3">Alertes SEO Santé et Backlinks</h3>
+                            <p class="text-[15px] text-[#425466] leading-relaxed">
+                                Analyse en continu de vos classements et backlinks, avec alertes automatiques en cas de
+                                problème ou d’amélioration.
+                            </p>
+                            <div
+                                class="mt-auto pt-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform translate-y-2 group-hover:translate-y-0">
+                                <span class="text-[#635bff] font-bold text-[13px] flex items-center">
+                                    En savoir plus <svg class="w-3 h-3 ml-1" fill="none" stroke="currentColor"
+                                        stroke-width="3" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"></path>
+                                    </svg>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CARD 8: Calendrier (Visual: Calendar) -->
+                <div class="min-w-[300px] md:min-w-[380px] snap-center">
+                    <div
+                        class="group h-full bg-white rounded-lg shadow-[0_2px_5px_rgba(50,50,93,0.1),0_1px_1px_rgba(0,0,0,0.07)] hover:shadow-[0_15px_35px_rgba(50,50,93,0.1),0_5px_15px_rgba(0,0,0,0.07)] transition-all duration-300 overflow-hidden flex flex-col cursor-pointer">
+                        <div
+                            class="h-[200px] group-hover:h-[140px] transition-all duration-300 ease-in-out bg-[#f6f9fc] p-6 flex flex-col justify-center relative border-b border-[#e6ebf1]">
+                            <div
+                                class="bg-white rounded border border-[#e6ebf1] p-3 shadow-sm w-[60%] mx-auto transform group-hover:scale-90 transition-transform duration-300">
+                                <div class="flex justify-between mb-2">
+                                    <span class="text-[8px] font-bold text-[#0a2540]">Sept</span>
+                                    <div class="flex gap-0.5">
+                                        <div class="w-1 h-1 bg-gray-300 rounded-full"></div>
+                                        <div class="w-1 h-1 bg-gray-300 rounded-full"></div>
+                                    </div>
+                                </div>
+                                <div class="grid grid-cols-4 gap-1">
+                                    <div class="h-3 bg-gray-50 rounded"></div>
+                                    <div class="h-3 bg-gray-50 rounded"></div>
+                                    <div class="h-3 bg-gray-50 rounded"></div>
+                                    <div class="h-3 bg-gray-50 rounded"></div>
+                                    <div class="h-3 bg-[#635bff] rounded col-span-2 opacity-80"></div>
+                                    <div class="h-3 bg-gray-50 rounded"></div>
+                                    <div class="h-3 bg-gray-50 rounded"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow bg-white relative">
+                            <div class="flex items-center gap-2 mb-3">
+                                <span class="text-[#ffbd00]"><svg class="w-4 h-4" fill="currentColor"
+                                        viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd"
+                                            d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z"
+                                            clip-rule="evenodd"></path>
+                                    </svg></span>
+                                <span class="text-[13px] font-bold text-[#425466]">Productivité</span>
+                            </div>
+                            <h3 class="text-[19px] font-bold text-[#0a2540] mb-3">Magie du calendrier et des rappels
+                            </h3>
+                            <p class="text-[15px] text-[#425466] leading-relaxed">
+                                Création automatique de réunions, suivis et rappels pour que rien ne passe à côté.
+                            </p>
+                            <div
+                                class="mt-auto pt-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform translate-y-2 group-hover:translate-y-0">
+                                <span class="text-[#635bff] font-bold text-[13px] flex items-center">
+                                    En savoir plus <svg class="w-3 h-3 ml-1" fill="none" stroke="currentColor"
+                                        stroke-width="3" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"></path>
+                                    </svg>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CARD 9: Assistant Commercial (Visual: Chat Bot) -->
+                <div class="min-w-[300px] md:min-w-[380px] snap-center">
+                    <div
+                        class="group h-full bg-white rounded-lg shadow-[0_2px_5px_rgba(50,50,93,0.1),0_1px_1px_rgba(0,0,0,0.07)] hover:shadow-[0_15px_35px_rgba(50,50,93,0.1),0_5px_15px_rgba(0,0,0,0.07)] transition-all duration-300 overflow-hidden flex flex-col cursor-pointer">
+                        <div
+                            class="h-[200px] group-hover:h-[140px] transition-all duration-300 ease-in-out bg-[#f6f9fc] p-6 flex flex-col justify-center relative border-b border-[#e6ebf1]">
+                            <div
+                                class="bg-white rounded-lg border border-[#e6ebf1] p-4 shadow-sm w-[70%] mx-auto transform group-hover:scale-90 transition-transform duration-300">
+                                <div class="flex gap-2 mb-2">
+                                    <div
+                                        class="w-6 h-6 rounded-full bg-[#ffbd00] flex items-center justify-center text-[10px] text-white">
+                                        AI</div>
+                                    <div
+                                        class="bg-gray-100 rounded-lg rounded-tl-none p-2 w-full text-[8px] text-gray-500">
+                                        Bonjour, comment puis-je vous aider ?</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow bg-white relative">
+                            <div class="flex items-center gap-2 mb-3">
+                                <span class="text-[#00d4ff]"><svg class="w-4 h-4" fill="currentColor"
+                                        viewBox="0 0 20 20">
+                                        <path
+                                            d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-3a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v3h-3z">
+                                        </path>
+                                    </svg></span>
+                                <span class="text-[13px] font-bold text-[#425466]">Ventes</span>
+                            </div>
+                            <h3 class="text-[19px] font-bold text-[#0a2540] mb-3">Assistant commercial 24h/24</h3>
+                            <p class="text-[15px] text-[#425466] leading-relaxed">
+                                Répondez à vos prospects même pendant votre sommeil grâce à des agents intelligents
+                                capables d’initier la conversation.
+                            </p>
+                            <div
+                                class="mt-auto pt-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform translate-y-2 group-hover:translate-y-0">
+                                <span class="text-[#635bff] font-bold text-[13px] flex items-center">
+                                    En savoir plus <svg class="w-3 h-3 ml-1" fill="none" stroke="currentColor"
+                                        stroke-width="3" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"></path>
+                                    </svg>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CARD 10: Réceptionniste IA (Visual: Phone) -->
+                <div class="min-w-[300px] md:min-w-[380px] snap-center">
+                    <div
+                        class="group h-full bg-white rounded-lg shadow-[0_2px_5px_rgba(50,50,93,0.1),0_1px_1px_rgba(0,0,0,0.07)] hover:shadow-[0_15px_35px_rgba(50,50,93,0.1),0_5px_15px_rgba(0,0,0,0.07)] transition-all duration-300 overflow-hidden flex flex-col cursor-pointer">
+                        <div
+                            class="h-[200px] group-hover:h-[140px] transition-all duration-300 ease-in-out bg-[#f6f9fc] p-6 flex flex-col justify-center relative border-b border-[#e6ebf1]">
+                            <div
+                                class="bg-white rounded-xl border border-[#e6ebf1] p-2 shadow-sm w-[40%] mx-auto h-24 flex flex-col items-center justify-center gap-1 transform group-hover:scale-90 transition-transform duration-300">
+                                <div class="w-8 h-1 bg-gray-100 rounded-full mb-2"></div>
+                                <div
+                                    class="w-8 h-8 rounded-full bg-[#f25f5c] flex items-center justify-center text-white">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z">
+                                        </path>
+                                    </svg></div>
+                            </div>
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow bg-white relative">
+                            <div class="flex items-center gap-2 mb-3">
+                                <span class="text-[#f25f5c]"><svg class="w-4 h-4" fill="currentColor"
+                                        viewBox="0 0 20 20">
+                                        <path
+                                            d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z">
+                                        </path>
+                                    </svg></span>
+                                <span class="text-[13px] font-bold text-[#425466]">Support</span>
+                            </div>
+                            <h3 class="text-[19px] font-bold text-[#0a2540] mb-3">Réceptionniste IA</h3>
+                            <p class="text-[15px] text-[#425466] leading-relaxed">
+                                Accueil automatisé via chatbot, formulaire ou téléphone pour filtrer les demandes
+                                entrantes ou orienter les visiteurs.
+                            </p>
+                            <div
+                                class="mt-auto pt-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform translate-y-2 group-hover:translate-y-0">
+                                <span class="text-[#635bff] font-bold text-[13px] flex items-center">
+                                    En savoir plus <svg class="w-3 h-3 ml-1" fill="none" stroke="currentColor"
+                                        stroke-width="3" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"></path>
+                                    </svg>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CARD 11: CRM (Visual: Blocks) -->
+                <div class="min-w-[300px] md:min-w-[380px] snap-center">
+                    <div
+                        class="group h-full bg-white rounded-lg shadow-[0_2px_5px_rgba(50,50,93,0.1),0_1px_1px_rgba(0,0,0,0.07)] hover:shadow-[0_15px_35px_rgba(50,50,93,0.1),0_5px_15px_rgba(0,0,0,0.07)] transition-all duration-300 overflow-hidden flex flex-col cursor-pointer">
+                        <div
+                            class="h-[200px] group-hover:h-[140px] transition-all duration-300 ease-in-out bg-[#f6f9fc] p-6 flex flex-col justify-center relative border-b border-[#e6ebf1]">
+                            <div
+                                class="flex justify-center gap-1 transform group-hover:scale-90 transition-transform duration-300">
+                                <div class="w-8 h-8 bg-white border border-[#e6ebf1] rounded shadow-sm"></div>
+                                <div class="w-8 h-8 bg-[#635bff] rounded shadow-sm opacity-80"></div>
+                                <div class="w-8 h-8 bg-white border border-[#e6ebf1] rounded shadow-sm"></div>
+                            </div>
+                            <div
+                                class="flex justify-center gap-1 mt-1 transform group-hover:scale-90 transition-transform duration-300">
+                                <div class="w-8 h-8 bg-white border border-[#e6ebf1] rounded shadow-sm"></div>
+                                <div class="w-8 h-8 bg-white border border-[#e6ebf1] rounded shadow-sm"></div>
+                            </div>
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow bg-white relative">
+                            <div class="flex items-center gap-2 mb-3">
+                                <span class="text-[#a259ff]"><svg class="w-4 h-4" fill="currentColor"
+                                        viewBox="0 0 20 20">
+                                        <path
+                                            d="M7 3a1 1 0 000 2h6a1 1 0 100-2H7zM4 7a1 1 0 011-1h10a1 1 0 110 2H5a1 1 0 01-1-1zM2 11a2 2 0 012-2h12a2 2 0 012 2v4a2 2 0 01-2 2H4a2 2 0 01-2-2v-4z">
+                                        </path>
+                                    </svg></span>
+                                <span class="text-[13px] font-bold text-[#425466]">Systèmes</span>
+                            </div>
+                            <h3 class="text-[19px] font-bold text-[#0a2540] mb-3">Système CRM personnalisé</h3>
+                            <p class="text-[15px] text-[#425466] leading-relaxed">
+                                Automatisation de la gestion des leads et des contacts : plus de conversions, moins de
+                                saisie manuelle.
+                            </p>
+                            <div
+                                class="mt-auto pt-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform translate-y-2 group-hover:translate-y-0">
+                                <span class="text-[#635bff] font-bold text-[13px] flex items-center">
+                                    En savoir plus <svg class="w-3 h-3 ml-1" fill="none" stroke="currentColor"
+                                        stroke-width="3" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"></path>
+                                    </svg>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CARD 12: Facturation (Visual: Invoice) -->
+                <div class="min-w-[300px] md:min-w-[380px] snap-center">
+                    <div
+                        class="group h-full bg-white rounded-lg shadow-[0_2px_5px_rgba(50,50,93,0.1),0_1px_1px_rgba(0,0,0,0.07)] hover:shadow-[0_15px_35px_rgba(50,50,93,0.1),0_5px_15px_rgba(0,0,0,0.07)] transition-all duration-300 overflow-hidden flex flex-col cursor-pointer">
+                        <div
+                            class="h-[200px] group-hover:h-[140px] transition-all duration-300 ease-in-out bg-[#f6f9fc] p-6 flex flex-col justify-center relative border-b border-[#e6ebf1]">
+                            <div
+                                class="bg-white rounded border border-[#e6ebf1] p-3 shadow-sm w-[60%] mx-auto transform group-hover:scale-90 transition-transform duration-300">
+                                <div class="flex justify-between mb-2">
+                                    <div class="w-4 h-4 bg-green-100 rounded-full"></div>
+                                    <div class="w-8 h-2 bg-gray-100 rounded"></div>
+                                </div>
+                                <div class="space-y-1">
+                                    <div class="w-full h-1 bg-gray-50 rounded"></div>
+                                    <div class="w-full h-1 bg-gray-50 rounded"></div>
+                                </div>
+                                <div class="mt-3 flex justify-end">
+                                    <div class="w-10 h-3 bg-[#635bff] rounded"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow bg-white relative">
+                            <div class="flex items-center gap-2 mb-3">
+                                <span class="text-[#24b47e]"><svg class="w-4 h-4" fill="currentColor"
+                                        viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd"
+                                            d="M4 4a2 2 0 00-2 2v4a2 2 0 002 2V6h10a2 2 0 00-2-2H4zm2 6a2 2 0 012-2h8a2 2 0 012 2v4a2 2 0 01-2 2H8a2 2 0 01-2-2v-4zm6 4a1 1 0 100-2 1 1 0 000 2z"
+                                            clip-rule="evenodd"></path>
+                                    </svg></span>
+                                <span class="text-[13px] font-bold text-[#425466]">Finance</span>
+                            </div>
+                            <h3 class="text-[19px] font-bold text-[#0a2540] mb-3">Facturation automatisée</h3>
+                            <p class="text-[15px] text-[#425466] leading-relaxed">
+                                Connexion directe entre votre pipeline et votre logiciel de facturation pour un
+                                traitement plus rapide, sans intervention.
+                            </p>
+                            <div
+                                class="mt-auto pt-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform translate-y-2 group-hover:translate-y-0">
+                                <span class="text-[#635bff] font-bold text-[13px] flex items-center">
+                                    En savoir plus <svg class="w-3 h-3 ml-1" fill="none" stroke="currentColor"
+                                        stroke-width="3" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"></path>
+                                    </svg>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CARD 13: Communication Client (Visual: Mail) -->
+                <div class="min-w-[300px] md:min-w-[380px] snap-center">
+                    <div
+                        class="group h-full bg-white rounded-lg shadow-[0_2px_5px_rgba(50,50,93,0.1),0_1px_1px_rgba(0,0,0,0.07)] hover:shadow-[0_15px_35px_rgba(50,50,93,0.1),0_5px_15px_rgba(0,0,0,0.07)] transition-all duration-300 overflow-hidden flex flex-col cursor-pointer">
+                        <div
+                            class="h-[200px] group-hover:h-[140px] transition-all duration-300 ease-in-out bg-[#f6f9fc] p-6 flex flex-col justify-center relative border-b border-[#e6ebf1]">
+                            <div
+                                class="bg-white rounded border border-[#e6ebf1] shadow-sm w-[70%] h-16 mx-auto relative transform group-hover:scale-90 transition-transform duration-300 overflow-hidden">
+                                <div class="absolute inset-0 flex items-center justify-center"><svg
+                                        class="w-8 h-8 text-gray-200" fill="currentColor" viewBox="0 0 20 20">
+                                        <path
+                                            d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z">
+                                        </path>
+                                        <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path>
+                                    </svg></div>
+                            </div>
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow bg-white relative">
+                            <div class="flex items-center gap-2 mb-3">
+                                <span class="text-[#ffbd00]"><svg class="w-4 h-4" fill="currentColor"
+                                        viewBox="0 0 20 20">
+                                        <path
+                                            d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z">
+                                        </path>
+                                        <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path>
+                                    </svg></span>
+                                <span class="text-[13px] font-bold text-[#425466]">Communication</span>
+                            </div>
+                            <h3 class="text-[19px] font-bold text-[#0a2540] mb-3">Communication client automatisée</h3>
+                            <p class="text-[15px] text-[#425466] leading-relaxed">
+                                Suivi automatisé des locataires ou clients, avec e-mails déclenchés selon leurs actions
+                                ou besoins.
+                            </p>
+                            <div
+                                class="mt-auto pt-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform translate-y-2 group-hover:translate-y-0">
+                                <span class="text-[#635bff] font-bold text-[13px] flex items-center">
+                                    En savoir plus <svg class="w-3 h-3 ml-1" fill="none" stroke="currentColor"
+                                        stroke-width="3" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"></path>
+                                    </svg>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    </section>
+
+    <!-- 
+      SECTION 10: TRUST & STATS 
+    -->
+    <section class="relative py-24 bg-transparent border-[#e6ebf1]">
+        <div class="max-w-[1080px] mx-auto px-6">
+
+            <!-- SECTION HEADER -->
+            <div class="mb-16 max-w-3xl">
+                <span class="text-[#635bff] font-bold text-[15px] mb-4 block tracking-wide">
+                    Pourquoi nous faire confiance
+                </span>
+                <h2 class="text-[32px] md:text-[42px] font-bold text-[#0a2540] mb-6 tracking-tight leading-[1.15]">
+                    L'expertise technique au service de votre croissance
+                </h2>
+                <p class="text-[17px] text-[#425466] leading-relaxed">
+                    Nous ne vendons pas du rêve, mais des résultats mesurables. Notre approche est fondée sur une
+                    expérience terrain éprouvée et une maîtrise technique des outils d'IA les plus avancés.
+                </p>
+            </div>
+
+            <!-- STATS GRID -->
+            <!-- Using a 4-column grid to match the Stripe density -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-y-12 gap-x-8">
+
+                <!-- Stat 1 -->
+                <div class="border-l-[3px] border-[#a259ff] pl-5 flex flex-col justify-start">
+                    <div class="text-[28px] font-bold text-[#635bff] mb-2 leading-none">+50</div>
+                    <div class="text-[15px] font-medium text-[#425466] leading-normal">
+                        Clients accompagnés à l’international
+                    </div>
+                </div>
+
+                <!-- Stat 2 -->
+                <div class="border-l-[3px] border-[#a259ff] pl-5 flex flex-col justify-start">
+                    <div class="text-[28px] font-bold text-[#635bff] mb-2 leading-none">60 %</div>
+                    <div class="text-[15px] font-medium text-[#425466] leading-normal">
+                        De réduction des délais opérationnels après déploiement
+                    </div>
+                </div>
+
+                <!-- Stat 3 -->
+                <div class="border-l-[3px] border-[#a259ff] pl-5 flex flex-col justify-start">
+                    <div class="text-[28px] font-bold text-[#635bff] mb-2 leading-none">30 %</div>
+                    <div class="text-[15px] font-medium text-[#425466] leading-normal">
+                        D’augmentation moyenne des conversions
+                    </div>
+                </div>
+
+                <!-- Stat 4 -->
+                <div class="border-l-[3px] border-[#a259ff] pl-5 flex flex-col justify-start">
+                    <div class="text-[28px] font-bold text-[#635bff] mb-2 leading-none">+15</div>
+                    <div class="text-[15px] font-medium text-[#425466] leading-normal">
+                        Experts IA, Product Managers et développeurs à vos côtés
+                    </div>
+                </div>
+
+                <!-- Stat 5 -->
+                <div class="border-l-[3px] border-[#a259ff] pl-5 flex flex-col justify-start">
+                    <div class="text-[28px] font-bold text-[#635bff] mb-2 leading-none">98 %</div>
+                    <div class="text-[15px] font-medium text-[#425466] leading-normal">
+                        Des clients recommandent notre diagnostic IA
+                    </div>
+                </div>
+
+                <!-- Stat 6 (Extracted "85%" for visual impact) -->
+                <div class="border-l-[3px] border-[#a259ff] pl-5 flex flex-col justify-start">
+                    <div class="text-[28px] font-bold text-[#635bff] mb-2 leading-none">85 %</div>
+                    <div class="text-[15px] font-medium text-[#425466] leading-normal">
+                        Des cas obtiennent des résultats dès les 30 premiers jours
+                    </div>
+                </div>
+
+                <!-- Stat 7 -->
+                <div class="border-l-[3px] border-[#a259ff] pl-5 flex flex-col justify-start md:col-span-2">
+                    <div class="text-[28px] font-bold text-[#635bff] mb-2 leading-none">+15 ans</div>
+                    <div class="text-[15px] font-medium text-[#425466] leading-normal">
+                        D’expérience cumulée dans la création de software, l’automatisation et l’IA
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Link/Button (Optional, matching the "Read the report" in image) -->
+            <div class="mt-12">
+                <a href="#"
+                    class="inline-flex items-center justify-center bg-[#a259ff] text-white px-5 py-2 rounded-full font-semibold text-[14px] hover:bg-[#8f4ce6] transition-all duration-200 shadow-sm hover:shadow-md group">
+                    Lire nos études de cas
+                    <svg class="w-3 h-3 ml-2 transform group-hover:translate-x-0.5 transition-transform" fill="none"
+                        stroke="currentColor" stroke-width="3" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"></path>
+                    </svg>
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const carousel = document.getElementById('cardCarousel');
+            const leftBtn = document.getElementById('slideLeft');
+            const rightBtn = document.getElementById('slideRight');
+
+            // Scroll Amount (width of card + gap)
+            const scrollAmount = 400;
+
+            rightBtn.addEventListener('click', () => {
+                carousel.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+            });
+
+            leftBtn.addEventListener('click', () => {
+                carousel.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+            });
+        });
+        document.addEventListener('DOMContentLoaded', () => {
+            const faqButtons = document.querySelectorAll('.faq-btn');
+
+            faqButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const content = button.nextElementSibling;
+                    const icon = button.querySelector('span:last-child');
+                    const isExpanded = content.style.maxHeight;
+
+                    // Close all other items (Accordion behavior)
+                    document.querySelectorAll('.faq-content').forEach(item => {
+                        item.style.maxHeight = null;
+                    });
+                    document.querySelectorAll('.faq-btn span:last-child').forEach(ic => {
+                        ic.style.transform = 'rotate(0deg)';
+                    });
+
+                    // Toggle current item
+                    if (!isExpanded) {
+                        content.style.maxHeight = content.scrollHeight + "px";
+                        icon.style.transform = 'rotate(180deg)';
+                    }
+                });
+            });
+        });
+        (function () {
+            const canvas = document.getElementById('stripeGlobeCanvas');
+            if (!canvas) return;
+
+            const ctx = canvas.getContext('2d');
+            let width, height, sphereRadius;
+
+            // CONFIGURATION
+            const DOT_COUNT = 1000;
+            const DOT_SIZE = 1.1;
+            const GLOBE_COLOR = '#000000';
+
+            // Rotation
+            let rotation = 0;
+            const rotationSpeed = 0.001;
+
+            // 1. Generate Sphere Dots
+            const points = [];
+            const phi = Math.PI * (3 - Math.sqrt(5));
+            for (let i = 0; i < DOT_COUNT; i++) {
+                const y = 1 - (i / (DOT_COUNT - 1)) * 2;
+                const radius = Math.sqrt(1 - y * y);
+                const theta = phi * i;
+                points.push({
+                    x: Math.cos(theta) * radius,
+                    y: y,
+                    z: Math.sin(theta) * radius
+                });
+            }
+
+            // 2. Cities
+            const cities = [
+                { x: -0.6, y: 0.5, z: 0.6, color: '#a259ff' },
+                { x: 0.4, y: 0.4, z: 0.7, color: '#00d4ff' },
+                { x: 0.8, y: -0.2, z: 0.3, color: '#ffbd00' },
+                { x: -0.3, y: -0.5, z: 0.8, color: '#635bff' }
+            ];
+
+            // 3. Trajectories
+            const trajectories = [
+                { from: 0, to: 1, color: '#a259ff', speed: 0.005, progress: 0 },
+                { from: 1, to: 2, color: '#00d4ff', speed: 0.004, progress: 0.5 },
+                { from: 3, to: 0, color: '#635bff', speed: 0.006, progress: 0.2 },
+                { from: 2, to: 1, color: '#ffbd00', speed: 0.003, progress: 0.7 }
+            ];
+
+            function resize() {
+                const parent = canvas.parentElement;
+                if (parent) {
+                    const dpr = window.devicePixelRatio || 1;
+                    canvas.width = parent.clientWidth * dpr;
+                    canvas.height = parent.clientHeight * dpr;
+                    canvas.style.width = '100%';
+                    canvas.style.height = '100%';
+
+                    ctx.scale(dpr, dpr);
+                    width = parent.clientWidth;
+                    height = parent.clientHeight;
+                    // Sphere size
+                    sphereRadius = Math.min(width, height) * 0.45;
+                }
+            }
+
+            function rotateX(point, angle) {
+                const cos = Math.cos(angle);
+                const sin = Math.sin(angle);
+                const z = point.z * cos - point.x * sin;
+                const x = point.z * sin + point.x * cos;
+                return { x, y: point.y, z };
+            }
+
+            function rotateY(point, angle) {
+                const cos = Math.cos(angle);
+                const sin = Math.sin(angle);
+                const x = point.x * cos - point.z * sin;
+                const z = point.x * sin + point.z * cos;
+                return { x, y: point.y, z };
+            }
+
+            // --- UPDATED PROJECTION LOGIC ---
+            function project(p) {
+                const perspective = 600 / (600 - p.z * sphereRadius);
+
+                // OFFSETS: 
+                // width * 0.7  -> Moves center to 70% of the width (Right)
+                // height * 0.6 -> Moves center to 60% of the height (Down)
+                const x = p.x * sphereRadius * perspective + (width * 0.7);
+                const y = p.y * sphereRadius * perspective + (height * 0.6);
+
+                return { x, y, scale: perspective, z: p.z };
+            }
+
+            function draw() {
+                ctx.clearRect(0, 0, width, height);
+                rotation += rotationSpeed;
+
+                // Layer 1: Dots
+                points.forEach(p => {
+                    let rp = rotateY(p, rotation);
+                    rp = rotateX(rp, 0.2);
+                    if (rp.z < -0.5) return;
+                    const proj = project(rp);
+                    ctx.beginPath();
+                    ctx.fillStyle = GLOBE_COLOR;
+                    ctx.globalAlpha = Math.max(0, (rp.z + 0.5) / 1.5);
+                    ctx.arc(proj.x, proj.y, DOT_SIZE * proj.scale, 0, Math.PI * 2);
+                    ctx.fill();
+                });
+                ctx.globalAlpha = 1;
+
+                // Layer 2: Cities
+                const projectedCities = cities.map(c => {
+                    let rp = rotateY(c, rotation);
+                    rp = rotateX(rp, 0.2);
+                    return { ...project(rp), original: c };
+                });
+
+                // Layer 3: Lines
+                trajectories.forEach(traj => {
+                    const start = projectedCities[traj.from];
+                    const end = projectedCities[traj.to];
+                    if (start.z < -0.4 && end.z < -0.4) return;
+
+                    const midX = (start.x + end.x) / 2;
+                    const midY = (start.y + end.y) / 2;
+
+                    // Adjust control point calc for offset center
+                    const centerX = width * 0.7;
+                    const centerY = height * 0.6;
+                    const dx = midX - centerX;
+                    const dy = midY - centerY;
+                    const dist = Math.sqrt(dx * dx + dy * dy);
+                    const cpX = centerX + (dx / dist) * (dist * 1.5);
+                    const cpY = centerY + (dy / dist) * (dist * 1.5);
+
+                    // Draw Line
+                    ctx.beginPath();
+                    ctx.moveTo(start.x, start.y);
+                    ctx.quadraticCurveTo(cpX, cpY, end.x, end.y);
+                    ctx.lineWidth = 1;
+                    ctx.strokeStyle = traj.color;
+                    ctx.globalAlpha = 0.2;
+                    ctx.setLineDash([5, 5]);
+                    ctx.stroke();
+                    ctx.setLineDash([]);
+                    ctx.globalAlpha = 1;
+
+                    // Draw Packet
+                    traj.progress += traj.speed;
+                    if (traj.progress > 1) traj.progress = 0;
+                    const t = traj.progress;
+                    const invT = 1 - t;
+                    const packetX = (invT * invT * start.x) + (2 * invT * t * cpX) + (t * t * end.x);
+                    const packetY = (invT * invT * start.y) + (2 * invT * t * cpY) + (t * t * end.y);
+
+                    const gradient = ctx.createRadialGradient(packetX, packetY, 0, packetX, packetY, 6);
+                    gradient.addColorStop(0, traj.color);
+                    gradient.addColorStop(1, 'rgba(255,255,255,0)');
+                    ctx.beginPath();
+                    ctx.fillStyle = gradient;
+                    ctx.arc(packetX, packetY, 6, 0, Math.PI * 2);
+                    ctx.fill();
+                    ctx.beginPath();
+                    ctx.fillStyle = '#fff';
+                    ctx.arc(packetX, packetY, 2, 0, Math.PI * 2);
+                    ctx.fill();
+                });
+
+                // Layer 4: Markers
+                projectedCities.forEach(p => {
+                    if (p.z < -0.4) return;
+                    ctx.beginPath();
+                    ctx.strokeStyle = p.original.color;
+                    ctx.lineWidth = 1.5;
+                    ctx.arc(p.x, p.y, 6 * p.scale, 0, Math.PI * 2);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.fillStyle = p.original.color;
+                    ctx.arc(p.x, p.y, 3 * p.scale, 0, Math.PI * 2);
+                    ctx.fill();
+                    ctx.beginPath();
+                    ctx.fillStyle = '#fff';
+                    ctx.arc(p.x, p.y, 1 * p.scale, 0, Math.PI * 2);
+                    ctx.fill();
+                });
+
+                requestAnimationFrame(draw);
+            }
+
+            window.addEventListener('resize', resize);
+            resize();
+            draw();
+        })();
+    </script>
+</body>
+
+</html>
