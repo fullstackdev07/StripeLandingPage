@@ -18,7 +18,7 @@
             theme: {
                 extend: {
                     fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
+                        sans: ['Sohne', 'Inter', 'Helvetica Neue', 'Arial', 'sans-serif'],
                     },
                     colors: {
                         stripe: {
@@ -90,16 +90,18 @@
             <div class="flex items-center gap-5">
                 <a href="#"
                     class="group flex items-center gap-2 text-[15px] font-semibold text-stripe-dark hover:opacity-70 transition-opacity duration-200 hidden sm:flex">
-                    <span>Sign in</span>
+                    <span class="text-[#9966ff]">Sign in</span>
                     <svg class="w-3 h-3 transform transition-transform group-hover:translate-x-0.5" fill="none"
-                        stroke="currentColor" stroke-width="3" viewBox="0 0 24 24">
+                        stroke="#9966FF" stroke-width="3" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
                     </svg>
                 </a>
 
                 <a href="#"
                     class="group flex items-center bg-[#a375ff] text-white px-4 py-2 rounded-full font-semibold text-[14px] hover:bg-[#534bd8] transition-colors duration-200">
-                    <span class="ml-1">Contact sales</span><svg class="w-3 h-3 ml-2 transform group-hover:translate-x-0.5 transition-transform" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24">
+                    <span class="ml-1">Contact sales</span><svg
+                        class="w-3 h-3 ml-2 transform group-hover:translate-x-0.5 transition-transform" fill="none"
+                        stroke="currentColor" stroke-width="3" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"></path>
                     </svg>
                 </a>
@@ -109,116 +111,176 @@
     </nav>
 
     <!-- HERO SECTION WRAPPER -->
-    <!-- HERO SECTION WRAPPER -->
     <section class="relative pt-24 pb-[250px] z-0">
-        
-        <!-- BACKGROUND GRADIENT -->
+
+        <!-- BACKGROUND GRADIENT STRIP -->
         <div class="absolute top-0 left-0 w-full h-[150%] pointer-events-none z-0 overflow-hidden">
-            <div class="absolute top-[550px] -left-[10%] w-[120%] h-[200px] -skew-y-12 opacity-90 animate-gradient-flow"
+            <!-- Adjusted top position and skew to match the diagonal flow behind the card -->
+            <div class="absolute top-[500px] -left-[10%] w-[120%] h-[240px] -skew-y-[8deg] opacity-90 animate-gradient-flow"
                 style="background: linear-gradient(115deg, #a259ff 0%, #00d4ff 40%, #00d4ff 60%, #a259ff 100%); background-size: 200% 200%;">
             </div>
         </div>
 
-        <div class="relative max-w-[1080px] mx-auto px-6 z-10">
-            
+        <div class="relative max-w-[1240px] mx-auto px-6 z-10">
+
             <!-- FLEX CONTAINER -->
-            <!-- 
-               Changed from Grid to Flex. 
-               md:flex-row = Side by side on desktop
-               items-start = Aligns content to the top
-               gap-16 = Space between columns
-            -->
-            <div class="flex flex-col md:flex-row gap-16 items-start">
-                
-                <!-- LEFT COLUMN: TEXT (45% Width) -->
-                <!-- w-full on mobile, 45% on desktop -->
-                <div class="w-full md:w-[45%] pt-4 relative z-10">
-                    <div class="inline-flex items-center gap-2.5 mb-8 font-bold text-stripe-purple text-sm">
-                        <span class="bg-[#635bff1a] text-stripe-purple text-xs px-2.5 py-1 rounded-xl font-semibold uppercase">
-                            Sessions 2026
+            <div class="flex flex-col md:flex-row gap-13 items-start">
+
+                <!-- LEFT COLUMN: TEXT (40% Width) -->
+                <!-- Added pt-14 to push text down slightly to align visually with card center -->
+                <div class="w-full md:w-[40%]  relative z-10">
+
+                    <!-- Session Badge -->
+                    <div class="inline-flex items-center gap-3 mb-8">
+                        <span
+                            class="bg-[#635bff]/10 text-black text-[11px] px-2.5 py-1 rounded-full font-bold uppercase tracking-wide flex items-center gap-2">
+                            <p>Sessions 2026</p>
+
+                            <!-- White dot -->
+                            <span class="w-1 h-1 bg-black rounded-full"></span>
+
+                            <p>Early-bird registration now open</p>
+
+                            <svg class="w-3 h-3 ml-1 transition-transform group-hover:translate-x-0.5" fill="none"
+                                stroke="currentColor" stroke-width="3" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"></path>
+                            </svg>
                         </span>
-                        <span class="text-[13px] font-semibold cursor-pointer hover:text-stripe-dark transition-colors">
-                            Early-bird registration now open <span class="ml-1">&rarr;</span>
-                        </span>
+
                     </div>
-                    
-                    <h1 class="text-[42px] md:text-[60px] leading-[1.05] tracking-[-2px] text-stripe-dark font-extrabold mb-6">
+
+                    <!-- Headline -->
+                    <h1 class="text-[46px] md:text-[55px] leading-[1.05] tracking-[-2px] text-[#0a2540] font-bold mb-6">
                         Unified, global payments to grow your revenue
                     </h1>
-                    
-                    <p class="text-[18px] leading-[1.6] text-stripe-text max-w-[480px] mb-8">
-                        Accept payments online, in person, and around the world with a payments solution built for any business – from scaling startups to global enterprises.
+
+                    <!-- Description -->
+                    <p class="text-[18px] leading-[1.6] text-[#425466] max-w-[460px] mb-8">
+                        Accept payments online, in person, and around the world with a payments solution built for any
+                        business – from scaling startups to global enterprises.
                     </p>
-                    
-                    <div class="flex flex-wrap gap-4 items-center">
-                        <a href="#" class="inline-flex items-center bg-[#a375ff] text-white font-semibold px-6 py-3 rounded-full hover:-translate-y-0.5 transition-transform duration-200 shadow-md group">
-                            Request an invite 
-                            <svg class="w-3 h-3 ml-2 transform group-hover:translate-x-0.5 transition-transform" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24">
+
+                    <!-- CTA Buttons -->
+                    <div class="flex flex-wrap gap-6 items-center">
+                        <a href="#"
+                            class="inline-flex items-center bg-[#9966FF] text-white font-semibold px-5 py-2.5 rounded-full text-[15px] hover:bg-[#4b45c6] transition-all shadow-[0_4px_6px_rgba(50,50,93,0.11),0_1px_3px_rgba(0,0,0,0.08)] group">
+                            Request an invite
+                            <svg class="w-3 h-3 ml-2 group-hover:translate-x-0.5 transition-transform" fill="none"
+                                stroke="currentColor" stroke-width="3" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"></path>
                             </svg>
                         </a>
                     </div>
                 </div>
 
-                <!-- RIGHT COLUMN: CARD (55% Width) -->
-                <!-- w-full on mobile, 55% on desktop -->
-                <div class="w-full md:w-[55%] relative z-10">
+                <!-- RIGHT COLUMN: CARD (60% Width) -->
+                <div class="w-full md:w-[60%] relative z-20">
                     <!-- 
-                       The Card Container
-                       max-w-[600px] allows it to be larger than before 
+                       CARD CONTAINER
+                       - Max width 640px to match image bulk
+                       - Heavy shadow
                     -->
-                    <div class="bg-white rounded-lg shadow-stripe-card w-full max-w-[600px] ml-auto border border-black/5 overflow-hidden">
-                        
+                    <div
+                        class="bg-white rounded-lg shadow-[0_50px_100px_-20px_rgba(50,50,93,0.25),0_30px_60px_-30px_rgba(0,0,0,0.3)] w-full max-w-[640px] ml-auto overflow-hidden border border-[#e6ebf1]">
+
                         <!-- Card Header -->
-                        <div class="px-8 py-5 border-b border-stripe-border flex justify-between text-sm font-semibold text-stripe-dark">
-                            <span>KAVHOLM</span>
-                            <span class="text-[#8898aa] font-normal">Cart &gt; Billing &gt; Confirmation</span>
+                        <div class="px-8 py-6 border-b border-[#e6ebf1] flex justify-between items-center bg-white">
+                            <span class="text-[14px] font-bold text-[#0a2540] uppercase tracking-wide">KAVHOLM</span>
+                            <div class="text-[13px] text-[#8898aa] font-medium flex items-center gap-1">
+                                <span>Cart</span>
+                                <span class="text-[10px]">›</span>
+                                <span>Billing</span>
+                                <span class="text-[10px]">›</span>
+                                <span class="text-[#0a2540] font-semibold">Confirmation</span>
+                            </div>
                         </div>
-                        
+
                         <!-- Card Body -->
-                        <div class="p-8 grid grid-cols-1 sm:grid-cols-[1.2fr_1fr] gap-8">
-                            
-                            <!-- Form Side -->
+                        <div class="p-8 grid grid-cols-1 sm:grid-cols-[1.3fr_1fr] gap-10">
+
+                            <!-- LEFT: FORM SIDE -->
                             <div>
+                                <!-- Shipping Address Block -->
                                 <div class="mb-6">
-                                    <label class="block text-xs font-semibold text-[#8898aa] mb-2">Shipping Address</label>
-                                    <div class="border border-stripe-border rounded p-3 text-[13px] bg-white text-stripe-text leading-[1.5]">
-                                        <strong>Micaela Patel</strong><br>
-                                        The Warehouse, 7th Floor<br>
-                                        211 Old Street<br>
-                                        London EC1V 9NR
+                                    <label class="block text-[13px] font-semibold text-[#8898aa] mb-2">Shipping
+                                        Address</label>
+                                    <div
+                                        class="border border-[#e6ebf1] bg-[#f6f9fc]/50 rounded-md p-3.5 text-[14px] text-[#425466] leading-[1.6]">
+                                        <div class="font-semibold text-[#0a2540]">Micaela Patel</div>
+                                        <div>The Warehouse, 7th Floor</div>
+                                        <div>211 Old Street</div>
+                                        <div>London EC1V 9NR</div>
                                     </div>
                                 </div>
+
+                                <!-- Pay With Block -->
                                 <div class="mb-2">
-                                    <label class="block text-xs font-semibold text-[#8898aa] mb-2">Pay with</label>
+                                    <label class="block text-[13px] font-semibold text-[#8898aa] mb-2">Pay with</label>
                                     <div class="flex gap-3">
-                                        <div class="flex-1 border-2 border-stripe-dark bg-stripe-bg rounded px-3 py-2.5 text-xs font-semibold text-center cursor-pointer flex items-center justify-center gap-1">
-                                            <span class="text-lg leading-none">💳</span> Card
+                                        <!-- Selected Option (Card) -->
+                                        <div
+                                            class="flex-1 border-2 border-[#0a2540] bg-[#f6f9fc] rounded-md py-2.5 px-3 flex items-center justify-center cursor-pointer shadow-sm relative">
+                                            <span class="text-lg mr-2">💳</span>
+                                            <span class="text-[13px] font-bold text-[#0a2540]">Card</span>
                                         </div>
-                                        <div class="flex-1 border border-stripe-border rounded px-3 py-2.5 text-xs font-semibold text-center cursor-pointer hover:bg-gray-50 flex items-center justify-center">
-                                            Klarna
+                                        <!-- Unselected Option (Klarna) -->
+                                        <div
+                                            class="flex-1 border border-[#e6ebf1] bg-white rounded-md py-2.5 px-3 flex items-center justify-center cursor-pointer hover:bg-gray-50 hover:border-gray-300 transition-colors">
+                                            <span class="text-[13px] font-bold text-[#0a2540] flex items-center">
+                                                <span class="text-[#ffb3c7] font-black mr-0.5">K.</span>Klarna
+                                            </span>
+                                        </div>
+                                    </div>
+
+                                    <!-- Card Details Inputs (Simplified Visuals) -->
+                                    <div class="mt-4 space-y-3">
+                                        <div
+                                            class="border border-[#e6ebf1] rounded-md p-3 flex items-center justify-between bg-white shadow-sm">
+                                            <span class="text-[#0a2540] text-sm tracking-widest font-mono">1234 1234
+                                                1234 1234</span>
+                                            <div class="flex gap-1">
+                                                <div class="w-6 h-4 bg-[#1a1f36] rounded-sm"></div>
+                                                <div class="w-6 h-4 bg-[#eb001b] rounded-sm"></div>
+                                            </div>
+                                        </div>
+                                        <div class="flex gap-3">
+                                            <div
+                                                class="w-1/2 border border-[#e6ebf1] rounded-md p-3 bg-white text-sm text-[#8898aa]">
+                                                MM / YY</div>
+                                            <div
+                                                class="w-1/2 border border-[#e6ebf1] rounded-md p-3 bg-white text-sm text-[#8898aa] flex justify-between">
+                                                CVC <span class="text-gray-300">123</span>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            
-                            <!-- Product Side -->
-                            <div>
-                                <div class="bg-stripe-bg h-[140px] rounded mb-5 flex items-center justify-center text-[50px]">
-                                    🪑
+
+                            <!-- RIGHT: PRODUCT SIDE -->
+                            <div class="flex flex-col">
+                                <!-- Image Container -->
+                                <div
+                                    class="bg-[#f6f9fc] rounded-lg h-[160px] mb-5 flex items-center justify-center relative overflow-hidden">
+                                    <div class="text-[60px]">🪑</div>
                                 </div>
-                                <div class="font-semibold text-[13px] mb-2 text-stripe-dark">Betala Wooden Chair</div>
-                                <div class="flex justify-between text-xs text-[#8898aa] mb-2">
-                                    <span>Subtotal</span><span>£240.00</span>
+
+                                <div class="font-bold text-[14px] mb-4 text-[#0a2540]">Betala Wooden Chair</div>
+
+                                <div class="space-y-2 mb-4 border-b border-[#e6ebf1] pb-4">
+                                    <div class="flex justify-between text-[13px] text-[#8898aa]">
+                                        <span>Subtotal</span><span>£240.00</span>
+                                    </div>
+                                    <div class="flex justify-between text-[13px] text-[#8898aa]">
+                                        <span>VAT (20%)</span><span>£48.00</span>
+                                    </div>
                                 </div>
-                                <div class="flex justify-between text-xs text-[#8898aa] mb-2">
-                                    <span>VAT (20%)</span><span>£48.00</span>
-                                </div>
-                                <div class="flex justify-between text-sm font-bold text-stripe-dark mt-4 pt-4 border-t border-stripe-border">
+
+                                <div class="flex justify-between text-[14px] font-bold text-[#0a2540] mb-6">
                                     <span>Total</span><span>£288.00</span>
                                 </div>
-                                
-                                <button class="w-full bg-stripe-dark text-white border-0 py-3 rounded font-semibold mt-6 text-sm cursor-pointer hover:bg-[#1a3b5c] transition-colors shadow-lg">
+
+                                <button
+                                    class="w-full bg-[#0a2540] text-white border-none py-3 rounded-md font-bold text-[14px] cursor-pointer hover:bg-[#1a3b5c] transition-colors shadow-lg mt-auto">
                                     Pay £288.00
                                 </button>
                             </div>
@@ -238,13 +300,8 @@
                 <div
                     class="relative md:pl-[30px] md:first:pl-0 md:border-l md:border-dashed md:border-stripe-dashed md:first:border-none">
                     <div class="w-10 h-10 mb-5 flex items-center">
-                        <svg viewBox="0 0 40 40" class="w-full h-full">
-                            <circle cx="20" cy="20" r="20" fill="#00d4ff" />
-                            <path d="M20 10a5 5 0 100 10 5 5 0 000-10zM12 30c0-4.4 3.6-8 8-8s8 3.6 8 8" stroke="white"
-                                stroke-width="2" fill="none" />
-                            <circle cx="28" cy="12" r="5" fill="#635bff" />
-                            <path d="M26 12l1.5 1.5 2.5-2.5" stroke="white" stroke-width="1.5" fill="none" />
-                        </svg>
+                        <svg class="Icon " width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"><defs><clipPath id="PersonWithCheckmarkIconClipPath-"><path fill-rule="evenodd" clip-rule="evenodd" d="M17 8C25.8366 8 33 15.1634 33 24C33 29.087 30.626 33.6195 26.9256 36.5501C26.0383 33.2393 21.9317 30.7368 17 30.7368C12.0683 30.7368 7.96174 33.2392 7.07298 36.5493C3.37396 33.6195 1 29.087 1 24C1 15.1634 8.16344 8 17 8ZM17 18C14.2386 18 12 20.2386 12 23C12 25.7614 14.2386 28 17 28C19.7614 28 22 25.7614 22 23C22 20.2386 19.7614 18 17 18Z" class="Icon__blendBackground" style="fill: #11efe3"></path></clipPath></defs><path fill-rule="evenodd" clip-rule="evenodd" d="M17 8C25.8366 8 33 15.1634 33 24C33 29.087 30.626 33.6195 26.9256 36.5501C26.0383 33.2393 21.9317 30.7368 17 30.7368C12.0683 30.7368 7.96174 33.2392 7.07298 36.5493C3.37396 33.6195 1 29.087 1 24C1 15.1634 8.16344 8 17 8ZM17 18C14.2386 18 12 20.2386 12 23C12 25.7614 14.2386 28 17 28C19.7614 28 22 25.7614 22 23C22 20.2386 19.7614 18 17 18Z" class="Icon__blendBackground" style="fill: #11efe3;"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M30 3C34.9706 3 39 7.02944 39 12C39 16.9706 34.9706 21 30 21C25.0294 21 21 16.9706 21 12C21 7.02944 25.0294 3 30 3ZM33.94 7.73L28 13.78L26.43 12C26.1336 11.7182 25.6762 11.6943 25.352 11.9436C25.0279 12.193 24.9337 12.6413 25.13 13L27 16.2C27.1823 16.4942 27.5039 16.6732 27.85 16.6732C28.1961 16.6732 28.5177 16.4942 28.7 16.2C29 15.79 34.7 8.63 34.7 8.63C35.45 7.83 34.54 7.12 33.94 7.73Z" class="Icon__blendForeground" style="fill: #96f;"></path><g clip-path="url(#PersonWithCheckmarkIconClipPath-)"><path fill-rule="evenodd" clip-rule="evenodd" d="M30 3C34.9706 3 39 7.02944 39 12C39 16.9706 34.9706 21 30 21C25.0294 21 21 16.9706 21 12C21 7.02944 25.0294 3 30 3ZM33.94 7.73L28 13.78L26.43 12C26.1336 11.7182 25.6762 11.6943 25.352 11.9436C25.0279 12.193 24.9337 12.6413 25.13 13L27 16.2C27.1823 16.4942 27.5039 16.6732 27.85 16.6732C28.1961 16.6732 28.5177 16.4942 28.7 16.2C29 15.79 34.7 8.63 34.7 8.63C35.45 7.83 34.54 7.12 33.94 7.73Z" class="Icon__blendForeground" style="fill: #0048e5;"></path></g></svg>
+
                     </div>
                     <h3 class="text-[15px] font-bold text-stripe-dark mb-3 tracking-tight">Convert more customers</h3>
                     <p class="text-[15px] leading-relaxed text-stripe-text font-normal">Increase conversion with
@@ -252,13 +309,7 @@
                 </div>
                 <div class="relative md:pl-[30px] md:border-l md:border-dashed md:border-stripe-dashed">
                     <div class="w-10 h-10 mb-5 flex items-center">
-                        <svg viewBox="0 0 40 40" class="w-full h-full">
-                            <circle cx="20" cy="20" r="18" stroke="#00d4ff" stroke-width="2" />
-                            <path d="M20 2v36M2 20h36" stroke="#00d4ff" stroke-width="2" />
-                            <path d="M10 5a25 25 0 0120 0M10 35a25 25 0 0020 0" stroke="#00d4ff" stroke-width="1.5"
-                                fill="none" />
-                            <circle cx="30" cy="30" r="6" fill="#635bff" />
-                        </svg>
+                        <svg class="Icon " width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"><defs><clipPath id="GlobeWithPersonIconClipPath-"><path fill-rule="evenodd" clip-rule="evenodd" d="M11.1733 24.7498C14.304 25.0734 17.4598 25.0732 20.5904 24.7491C20.7185 24.7368 20.8447 24.7868 20.9296 24.8836C21.0144 24.9804 21.0474 25.1121 21.0184 25.2375C19.9907 29.7781 18.1429 32.8461 16.0269 33H15.8769V32.99H15.7169C13.6005 32.8457 11.7617 29.777 10.7347 25.235C10.7087 25.1085 10.7445 24.9771 10.8311 24.8813C10.9177 24.7855 11.0448 24.7366 11.1733 24.7498ZM30.3419 21.975C30.4884 21.8904 30.6724 21.9079 30.8002 22.0187C30.928 22.1295 30.9716 22.3091 30.9086 22.4661C29.2795 26.9034 25.7829 30.4007 21.3459 32.0307C21.1888 32.0937 21.0091 32.0501 20.8983 31.9221C20.7875 31.7942 20.7701 31.61 20.855 31.4636C22.0154 29.3363 22.8076 27.028 23.1979 24.6364C23.2286 24.4766 23.3535 24.3516 23.5133 24.3209C25.9051 23.9282 28.2137 23.1351 30.3419 21.975ZM1.65831 21.975C3.78653 23.1351 6.09507 23.9282 8.48691 24.3209C8.64671 24.3516 8.77166 24.4766 8.80231 24.6364C9.19264 27.028 9.98479 29.3363 11.1452 31.4636C11.2301 31.61 11.2127 31.7942 11.1019 31.9221C10.9911 32.0501 10.8114 32.0937 10.6543 32.0307C6.21731 30.4007 2.72068 26.9034 1.09161 22.4661C1.02866 22.3091 1.07219 22.1295 1.20002 22.0187C1.32785 21.9079 1.51186 21.8904 1.65831 21.975ZM15.8769 11C17.6537 10.9952 19.4289 11.108 21.1908 11.3377C21.3731 11.3633 21.5158 11.5077 21.5391 11.6903C22.0046 15.2144 22.0046 18.7845 21.5391 22.3086C21.5139 22.4925 21.3693 22.6371 21.1854 22.6623C17.661 23.1278 14.0906 23.1278 10.5662 22.6623C10.3844 22.6399 10.2403 22.4982 10.2149 22.3168C9.7734 18.7875 9.77407 15.217 10.2169 11.6879C10.2379 11.507 10.3789 11.3634 10.5594 11.3392C12.3236 11.1207 14.0992 11.0074 15.8769 11ZM7.98097 11.9508C8.07887 12.0356 8.12998 12.1624 8.11831 12.2914C7.79929 15.4215 7.79929 18.5758 8.11831 21.7059C8.13073 21.8344 8.08141 21.9611 7.98541 22.0474C7.88941 22.1337 7.75815 22.1693 7.63171 22.1433C-2.37949 19.9022 -2.70449 14.2755 7.62431 11.8633C7.75035 11.8334 7.88308 11.866 7.98097 11.9508ZM24.2998 11.8528L24.3759 11.8633C34.7047 14.2755 34.3797 19.9022 24.3685 22.1433C24.2421 22.1693 24.1108 22.1337 24.0148 22.0474C23.9188 21.9611 23.8695 21.8344 23.8819 21.7059C24.2009 18.5758 24.2009 15.4215 23.8819 12.2914C23.8702 12.1624 23.9213 12.0356 24.0192 11.9508C24.1171 11.866 24.2499 11.8334 24.3759 11.8633L24.2998 11.8528ZM21.333 1.9683C25.7713 3.59773 29.2692 7.09557 30.8986 11.5339C30.9616 11.6909 30.918 11.8705 30.7902 11.9813C30.6624 12.0921 30.4784 12.1096 30.3319 12.025C28.2036 10.8649 25.895 10.0718 23.5031 9.6791C23.3434 9.64847 23.2184 9.52354 23.1878 9.3638C22.7951 6.9719 22.002 4.6633 20.8419 2.535C20.7573 2.38855 20.7748 2.20454 20.8856 2.07671C20.9964 1.94888 21.176 1.90535 21.333 1.9683ZM10.6672 1.9683C10.8242 1.90535 11.0039 1.94888 11.1146 2.07671C11.2254 2.20454 11.2429 2.38855 11.1583 2.535C9.99822 4.6633 9.20515 6.9719 8.81241 9.3638C8.78178 9.52354 8.65685 9.64847 8.49711 9.6791C6.10521 10.0718 3.7966 10.8649 1.66831 12.025L1.59239 12.0588C1.46208 12.1012 1.31654 12.0736 1.21002 11.9813C1.08219 11.8705 1.03866 11.6909 1.10161 11.5339C2.73104 7.09557 6.22888 3.59773 10.6672 1.9683ZM16.0269 1C18.1428 1.1443 19.9904 4.2207 21.0182 8.7526C21.0469 8.87818 21.0135 9.00989 20.9286 9.10674C20.8437 9.20359 20.7175 9.25382 20.5892 9.2418C17.4585 8.92265 14.3035 8.92265 11.1728 9.2418C11.0443 9.2546 10.9173 9.20546 10.8308 9.10944C10.7444 9.01343 10.7088 8.88201 10.735 8.7555C11.762 4.2218 13.6007 1.1443 15.7169 1H16.0269Z" class="Icon__blendBackground" style="fill: #11efe3;"></path></clipPath></defs><path fill-rule="evenodd" clip-rule="evenodd" d="M11.1733 24.7498C14.304 25.0734 17.4598 25.0732 20.5904 24.7491C20.7185 24.7368 20.8447 24.7868 20.9296 24.8836C21.0144 24.9804 21.0474 25.1121 21.0184 25.2375C19.9907 29.7781 18.1429 32.8461 16.0269 33H15.8769V32.99H15.7169C13.6005 32.8457 11.7617 29.777 10.7347 25.235C10.7087 25.1085 10.7445 24.9771 10.8311 24.8813C10.9177 24.7855 11.0448 24.7366 11.1733 24.7498ZM30.3419 21.975C30.4884 21.8904 30.6724 21.9079 30.8002 22.0187C30.928 22.1295 30.9716 22.3091 30.9086 22.4661C29.2795 26.9034 25.7829 30.4007 21.3459 32.0307C21.1888 32.0937 21.0091 32.0501 20.8983 31.9221C20.7875 31.7942 20.7701 31.61 20.855 31.4636C22.0154 29.3363 22.8076 27.028 23.1979 24.6364C23.2286 24.4766 23.3535 24.3516 23.5133 24.3209C25.9051 23.9282 28.2137 23.1351 30.3419 21.975ZM1.65831 21.975C3.78653 23.1351 6.09507 23.9282 8.48691 24.3209C8.64671 24.3516 8.77166 24.4766 8.80231 24.6364C9.19264 27.028 9.98479 29.3363 11.1452 31.4636C11.2301 31.61 11.2127 31.7942 11.1019 31.9221C10.9911 32.0501 10.8114 32.0937 10.6543 32.0307C6.21731 30.4007 2.72068 26.9034 1.09161 22.4661C1.02866 22.3091 1.07219 22.1295 1.20002 22.0187C1.32785 21.9079 1.51186 21.8904 1.65831 21.975ZM15.8769 11C17.6537 10.9952 19.4289 11.108 21.1908 11.3377C21.3731 11.3633 21.5158 11.5077 21.5391 11.6903C22.0046 15.2144 22.0046 18.7845 21.5391 22.3086C21.5139 22.4925 21.3693 22.6371 21.1854 22.6623C17.661 23.1278 14.0906 23.1278 10.5662 22.6623C10.3844 22.6399 10.2403 22.4982 10.2149 22.3168C9.7734 18.7875 9.77407 15.217 10.2169 11.6879C10.2379 11.507 10.3789 11.3634 10.5594 11.3392C12.3236 11.1207 14.0992 11.0074 15.8769 11ZM7.98097 11.9508C8.07887 12.0356 8.12998 12.1624 8.11831 12.2914C7.79929 15.4215 7.79929 18.5758 8.11831 21.7059C8.13073 21.8344 8.08141 21.9611 7.98541 22.0474C7.88941 22.1337 7.75815 22.1693 7.63171 22.1433C-2.37949 19.9022 -2.70449 14.2755 7.62431 11.8633C7.75035 11.8334 7.88308 11.866 7.98097 11.9508ZM24.2998 11.8528L24.3759 11.8633C34.7047 14.2755 34.3797 19.9022 24.3685 22.1433C24.2421 22.1693 24.1108 22.1337 24.0148 22.0474C23.9188 21.9611 23.8695 21.8344 23.8819 21.7059C24.2009 18.5758 24.2009 15.4215 23.8819 12.2914C23.8702 12.1624 23.9213 12.0356 24.0192 11.9508C24.1171 11.866 24.2499 11.8334 24.3759 11.8633L24.2998 11.8528ZM21.333 1.9683C25.7713 3.59773 29.2692 7.09557 30.8986 11.5339C30.9616 11.6909 30.918 11.8705 30.7902 11.9813C30.6624 12.0921 30.4784 12.1096 30.3319 12.025C28.2036 10.8649 25.895 10.0718 23.5031 9.6791C23.3434 9.64847 23.2184 9.52354 23.1878 9.3638C22.7951 6.9719 22.002 4.6633 20.8419 2.535C20.7573 2.38855 20.7748 2.20454 20.8856 2.07671C20.9964 1.94888 21.176 1.90535 21.333 1.9683ZM10.6672 1.9683C10.8242 1.90535 11.0039 1.94888 11.1146 2.07671C11.2254 2.20454 11.2429 2.38855 11.1583 2.535C9.99822 4.6633 9.20515 6.9719 8.81241 9.3638C8.78178 9.52354 8.65685 9.64847 8.49711 9.6791C6.10521 10.0718 3.7966 10.8649 1.66831 12.025L1.59239 12.0588C1.46208 12.1012 1.31654 12.0736 1.21002 11.9813C1.08219 11.8705 1.03866 11.6909 1.10161 11.5339C2.73104 7.09557 6.22888 3.59773 10.6672 1.9683ZM16.0269 1C18.1428 1.1443 19.9904 4.2207 21.0182 8.7526C21.0469 8.87818 21.0135 9.00989 20.9286 9.10674C20.8437 9.20359 20.7175 9.25382 20.5892 9.2418C17.4585 8.92265 14.3035 8.92265 11.1728 9.2418C11.0443 9.2546 10.9173 9.20546 10.8308 9.10944C10.7444 9.01343 10.7088 8.88201 10.735 8.7555C11.762 4.2218 13.6007 1.1443 15.7169 1H16.0269Z" class="Icon__blendBackground" style="fill: #11efe3;"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M21.0328 38.5127C21.3758 35.9799 24.3642 34 28 34C31.6358 34 34.6242 35.9799 34.9672 38.5127C37.4291 36.4954 39 33.4311 39 30C39 23.9249 34.0751 19 28 19C21.9249 19 17 23.9249 17 30C17 33.4311 18.5709 36.4954 21.0328 38.5127ZM31 29C31 30.6569 29.6569 32 28 32C26.3431 32 25 30.6569 25 29C25 27.3431 26.3431 26 28 26C29.6569 26 31 27.3431 31 29Z" class="Icon__blendForeground" style="fill: #96f;"></path><g clip-path="url(#GlobeWithPersonIconClipPath-)"><path fill-rule="evenodd" clip-rule="evenodd" d="M21.0328 38.5127C21.3758 35.9799 24.3642 34 28 34C31.6358 34 34.6242 35.9799 34.9672 38.5127C37.4291 36.4954 39 33.4311 39 30C39 23.9249 34.0751 19 28 19C21.9249 19 17 23.9249 17 30C17 33.4311 18.5709 36.4954 21.0328 38.5127ZM31 29C31 30.6569 29.6569 32 28 32C26.3431 32 25 30.6569 25 29C25 27.3431 26.3431 26 28 26C29.6569 26 31 27.3431 31 29Z" class="Icon__blendForeground" style="fill: #0048e5;"></path></g></svg>
                     </div>
                     <h3 class="text-[15px] font-bold text-stripe-dark mb-3 tracking-tight">Global reach, local
                         experience</h3>
@@ -267,23 +318,35 @@
                 </div>
                 <div class="relative md:pl-[30px] md:border-l md:border-dashed md:border-stripe-dashed">
                     <div class="w-10 h-10 mb-5 flex items-center">
-                        <svg viewBox="0 0 40 40" class="w-full h-full">
-                            <rect x="5" y="10" width="24" height="16" rx="2" fill="#00d4ff" />
-                            <path d="M5 14h24" stroke="white" stroke-width="1" />
-                            <circle cx="28" cy="28" r="8" fill="white" stroke="#635bff" stroke-width="2" />
-                            <path d="M34 34l4 4" stroke="#635bff" stroke-width="3" stroke-linecap="round" />
-                        </svg>
+                        <svg class="Icon " width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"><defs><clipPath id="CardWithMagnifyingGlassIconClipPath-"><path fill-rule="evenodd" clip-rule="evenodd" d="M4 5C1.79086 5 0 6.79086 0 9V23C0 25.2091 1.79086 27 4 27H28C30.2091 27 32 25.2091 32 23V9C32 6.79086 30.2091 5 28 5H4ZM3.75 9C3.33579 9 3 9.33579 3 9.75V11.25C3 11.6642 3.33579 12 3.75 12H28.25C28.6642 12 29 11.6642 29 11.25V9.75C29 9.33579 28.6642 9 28.25 9H3.75Z" class="Icon__blendBackground" style="fill: #11efe3;"></path></clipPath></defs><path fill-rule="evenodd" clip-rule="evenodd" d="M4 5C1.79086 5 0 6.79086 0 9V23C0 25.2091 1.79086 27 4 27H28C30.2091 27 32 25.2091 32 23V9C32 6.79086 30.2091 5 28 5H4ZM3.75 9C3.33579 9 3 9.33579 3 9.75V11.25C3 11.6642 3.33579 12 3.75 12H28.25C28.6642 12 29 11.6642 29 11.25V9.75C29 9.33579 28.6642 9 28.25 9H3.75Z" class="Icon__blendBackground" style="fill: #11efe3;"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M24 33C26.1677 33 28.1564 32.2336 29.71 30.9571L31.043 32.29C30.653 32.6806 30.6531 33.3134 31.0435 33.7038L36.8438 39.5041C37.2343 39.8946 37.8675 39.8946 38.258 39.5041L39.6739 38.0882C40.0645 37.6977 40.0645 37.0645 39.6739 36.674L33.8736 30.8736C33.4833 30.4833 32.8505 30.4831 32.4599 30.8731L31.108 29.5212C32.2938 27.9968 33 26.0809 33 24C33 19.0294 28.9706 15 24 15C19.0294 15 15 19.0294 15 24C15 28.9706 19.0294 33 24 33ZM24 30C27.3137 30 30 27.3137 30 24C30 20.6863 27.3137 18 24 18C20.6863 18 18 20.6863 18 24C18 27.3137 20.6863 30 24 30Z" class="Icon__blendForeground" style="fill: #96f;"></path><g clip-path="url(#CardWithMagnifyingGlassIconClipPath-)"><path fill-rule="evenodd" clip-rule="evenodd" d="M24 33C26.1677 33 28.1564 32.2336 29.71 30.9571L31.043 32.29C30.653 32.6806 30.6531 33.3134 31.0435 33.7038L36.8438 39.5041C37.2343 39.8946 37.8675 39.8946 38.258 39.5041L39.6739 38.0882C40.0645 37.6977 40.0645 37.0645 39.6739 36.674L33.8736 30.8736C33.4833 30.4833 32.8505 30.4831 32.4599 30.8731L31.108 29.5212C32.2938 27.9968 33 26.0809 33 24C33 19.0294 28.9706 15 24 15C19.0294 15 15 19.0294 15 24C15 28.9706 19.0294 33 24 33ZM24 30C27.3137 30 30 27.3137 30 24C30 20.6863 27.3137 18 24 18C20.6863 18 18 20.6863 18 24C18 27.3137 20.6863 30 24 30Z" class="Icon__blendForeground" style="fill: #0048e5;"></path></g></svg>
                     </div>
                     <h3 class="text-[15px] font-bold text-stripe-dark mb-3 tracking-tight">Less fraud, more revenue</h3>
                     <p class="text-[15px] leading-relaxed text-stripe-text font-normal">Automatically decrease fraud and
                         improve authorisation rates using Stripe Radar and Authorization Boost.</p>
                 </div>
                 <div class="relative md:pl-[30px] md:border-l md:border-dashed md:border-stripe-dashed">
-                    <div class="w-10 h-10 mb-5 flex items-center">
-                        <svg viewBox="0 0 40 40" class="w-full h-full">
-                            <path d="M10 10l20 10-20 10z" fill="#00d4ff" />
-                            <path d="M15 10l20 10-20 10z" fill="#635bff" style="opacity:0.7" />
-                        </svg>
+                    <div class="w-15 h-10 mb-5 flex items-center">
+                        <svg class="AnimatedIcon__icon" width="96" height="96" preserveAspectRatio="xMinYMin" viewBox="0 0 96 96" xmlns="http://www.w3.org/2000/svg" data-js-controller="FastForwardIcon">
+      <defs>
+      <path id="fastForwardIconArrow" d="M19.15 31.36l21.53 15.15a2 2 0 0 1 0 3.27L19.15 64.93A2 2 0 0 1 16 63.29V33a2 2 0 0 1 3.15-1.64z"></path>
+      <clipPath id="fastForwardIconClipPath">
+        <use href="#fastForwardIconArrow" fill="#11efe3" data-js-target-list="FastForwardIcon.firstBackArrows" data-js-bbox="firstHiddenArrow"></use>
+        <use href="#fastForwardIconArrow" transform="translate(-42, 0)" fill="#11efe3" data-js-target-list="FastForwardIcon.secondBackArrows" data-js-bbox="secondHiddenArrow"></use>
+      </clipPath>
+    </defs>
+
+    <use href="#fastForwardIconArrow" fill="#11efe3" data-js-target="FastForwardIcon.firstHiddenArrow" style="visibility: hidden;"></use>
+    <use href="#fastForwardIconArrow" transform="translate(-42, 0)" fill="#11efe3" data-js-target="FastForwardIcon.secondHiddenArrow" style="visibility: hidden;"></use>
+
+    <use href="#fastForwardIconArrow" fill="#11efe3" data-js-target-list="FastForwardIcon.firstBackArrows"></use>
+    <use href="#fastForwardIconArrow" fill="#11efe3" data-js-target-list="FastForwardIcon.secondBackArrows" style="opacity: 0;"></use>
+    <use href="#fastForwardIconArrow" transform="translate(14, 0)" fill="#96f" data-js-target-list="FastForwardIcon.firstFrontArrows"></use>
+    <use href="#fastForwardIconArrow" fill="#96f" data-js-target-list="FastForwardIcon.secondFrontArrows" style="opacity: 0;"></use>
+    <g clip-path="url(#fastForwardIconClipPath)">
+      <use href="#fastForwardIconArrow" transform="translate(14, 0)" fill="#0048e5" data-js-target-list="FastForwardIcon.firstFrontArrows"></use>
+      <use href="#fastForwardIconArrow" fill="#0048e5" data-js-target-list="FastForwardIcon.secondFrontArrows" style="opacity: 0;"></use>
+    </g>
+    </svg>
                     </div>
                     <h3 class="text-[15px] font-bold text-stripe-dark mb-3 tracking-tight">Move faster and lower costs
                     </h3>
@@ -329,7 +392,8 @@
                                     <svg class="w-3 h-3" fill="none" stroke="currentColor" stroke-width="3"
                                         viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path>
-                                    </svg></div>
+                                    </svg>
+                                </div>
                                 <span class="text-[15px] text-[#425466] font-medium">Advanced card acquiring, including
                                     incremental auth, multicapture, and more</span>
                             </li>
@@ -339,7 +403,8 @@
                                     <svg class="w-3 h-3" fill="none" stroke="currentColor" stroke-width="3"
                                         viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path>
-                                    </svg></div>
+                                    </svg>
+                                </div>
                                 <span class="text-[15px] text-[#425466] font-medium">Local acquiring in global
                                     markets</span>
                             </li>
@@ -349,7 +414,8 @@
                                     <svg class="w-3 h-3" fill="none" stroke="currentColor" stroke-width="3"
                                         viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path>
-                                    </svg></div>
+                                    </svg>
+                                </div>
                                 <span class="text-[15px] text-[#425466] font-medium">Access to regional debit
                                     networks</span>
                             </li>
@@ -359,7 +425,8 @@
                                     <svg class="w-3 h-3" fill="none" stroke="currentColor" stroke-width="3"
                                         viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path>
-                                    </svg></div>
+                                    </svg>
+                                </div>
                                 <span class="text-[15px] text-[#425466] font-medium">Ability to pass product line-item
                                     data</span>
                             </li>
@@ -369,7 +436,8 @@
                                     <svg class="w-3 h-3" fill="none" stroke="currentColor" stroke-width="3"
                                         viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path>
-                                    </svg></div>
+                                    </svg>
+                                </div>
                                 <span class="text-[15px] text-[#425466] font-medium">Support for multiprocessor
                                     setups</span>
                             </li>
@@ -379,7 +447,8 @@
                                     <svg class="w-3 h-3" fill="none" stroke="currentColor" stroke-width="3"
                                         viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path>
-                                    </svg></div>
+                                    </svg>
+                                </div>
                                 <span class="text-[15px] text-[#425466] font-medium">Manage all lines of business or
                                     subsidiaries across multiple Stripe accounts with <a href="#"
                                         class="text-[#635bff] hover:text-[#0a2540] transition-colors">Organisations</a></span>
@@ -415,12 +484,6 @@
       - Stripe Style Review Cards
     -->
     <section class="relative bg-white pt-24 pb-32 z-10 mt-[200px]">
-
-        <!-- 
-           THE RISING DIAGONAL TRANSITION
-           This white block is skewed to create the "rise from left to right" effect 
-           over the previous section's background.
-        -->
         <div
             class="absolute top-[-80px] right-0 w-full h-[220px] bg-white -skew-y-6 origin-bottom-right z-10 -mt-[140px]">
             <div class="absolute -top-[10px] right-0 w-full h-[60px] pointer-events-none">
@@ -725,9 +788,33 @@
     <!-- 
       SECTION 7: CTA (Matched to "Stripe named a Leader" UI)
     -->
-    <section class="relative py-24 bg-[#f6f9fc] border-[#e6ebf1]">
-        <div class="max-w-[1080px] mx-auto px-6">
 
+    <!-- 
+      SECTION 7: CTA 
+      - Fixed Visibility of Transition Bars
+      - Angled Top Edge
+    -->
+    <section class="relative py-24 mb-[150px] mt-[100px] z-10">
+
+        <!-- 
+           BACKGROUND & TRANSITION LAYER 
+           We move the background color #f6f9fc HERE, instead of the section tag.
+           We use -skew-y-3 to slant the whole block upwards.
+        -->
+        <div class="absolute inset-0 w-full h-full bg-[#f6f9fc] -skew-y-6 origin-top-left -z-10">
+            <div class="absolute top-[-30px] left-[-20px] w-[400px] h-[100px] pointer-events-none hidden md:block">
+                <!-- Purple Bar (Back) -->
+                <div class="absolute top-[10px] left-0 w-[350px] h-[35px] bg-[#a259ff] opacity-90"></div>
+                <!-- Cyan Bar (Front) -->
+                <div
+                    class="absolute top-[35px] left-[40px] w-[250px] h-[35px] bg-[#00d4ff] mix-blend-multiply opacity-90">
+                </div>
+            </div>
+
+        </div>
+
+        <!-- CONTENT -->
+        <div class="max-w-[1080px] mx-auto px-6 relative z-20">
             <div class="max-w-3xl">
                 <!-- Headline -->
                 <h2 class="text-[32px] md:text-[36px] font-bold text-[#0a2540] mb-6 tracking-tight leading-[1.2]">
@@ -752,31 +839,47 @@
                     </svg>
                 </a>
             </div>
-
         </div>
     </section>
 
     <!-- 
       SECTION 8: NOTRE EXPERTISE 
+      - Added "Rising Diagonal" Transition at the top
     -->
-    <section class="relative py-24 bg-white border-t border-[#e6ebf1]">
-        <div class="max-w-[1080px] mx-auto px-6">
+    <section class="relative py-24 bg-[#0a2540] z-10 mt-[40px]">
+
+        <!-- TRANSITION: White Angled Top -->
+        <!-- This sits on top of the previous section's background to cut it diagonally -->
+        <div class="absolute top-[-201px] left-0 w-full h-[201px] bg-[#0a2540] -skew-y-6 origin-bottom-right z-10">
+
+            <div class="absolute -top-[10px] right-0 w-full h-[60px] pointer-events-none">
+                <div class="w-full mx-[10px] px-6 relative h-full">
+                    <div class="absolute -bottom-1 right-0 w-[250px] h-[30px]  bg-stripe-lightPurple opacity-90"></div>
+                    <div
+                        class="absolute bottom-[10px] right-0 w-[500px] h-[40px] bg-[#11EFE3] mix-[#c2ffff] opacity-90">
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="max-w-[1080px] mx-auto px-6 relative z-20">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-start">
 
                 <!-- LEFT COLUMN: TEXT CONTENT -->
                 <div class="pt-4">
-                    <h2 class="text-[32px] font-bold text-[#0a2540] mb-6 tracking-tight leading-[1.2]">
+                    <h2 class="text-[32px] font-bold text-white mb-6 tracking-tight leading-[1.2]">
                         Nos experts travaillent avec les outils IA les plus performants
                     </h2>
 
-                    <p class="text-[17px] text-[#425466] leading-relaxed mb-6">
+                    <p class="text-[17px] text-[#adbdcc] leading-relaxed mb-6">
                         Nous sélectionnons pour vous les technologies les mieux adaptées à vos besoins, avec une
-                        attention particulière portée à la <span class="text-[#635bff] font-medium">simplicité
+                        attention particulière portée à la <span class="text-[#11EFE3] font-medium">simplicité
                             d’usage</span>, à l’intégration rapide et à l’impact business.
                     </p>
 
                     <a href="#"
-                        class="inline-flex items-center text-[#635bff] font-semibold hover:text-[#0a2540] transition-colors mb-12 group">
+                        class="inline-flex items-center text-[#11EFE3] font-semibold hover:text-[#0a2540] transition-colors mb-12 group">
                         Voir la liste complète des outils
                         <svg class="w-3 h-3 ml-2 transform group-hover:translate-x-1 transition-transform" fill="none"
                             stroke="currentColor" stroke-width="3" viewBox="0 0 24 24">
@@ -784,10 +887,10 @@
                         </svg>
                     </a>
 
-                    <!-- Bottom Block with Purple Line (Matches "Access 100+ payment methods" style) -->
+                    <!-- Bottom Block with Purple Line -->
                     <div class="border-l-[3px] border-[#635bff] pl-5">
-                        <p class="text-[15px] font-medium text-[#425466] leading-relaxed">
-                            <strong class="text-[#0a2540] block mb-1">Accompagnement clé en main</strong>
+                        <p class="text-[15px] font-medium text-[#11EFE3] leading-relaxed">
+                            <strong class="text-[#11EFE3] block mb-1">Accompagnement clé en main</strong>
                             Vous n’avez pas à maîtriser ces outils complexes. Nous vous guidons étape par étape pour en
                             tirer le meilleur, sans friction technique.
                         </p>
@@ -825,7 +928,7 @@
                             </div>
                         </div>
 
-                        <!-- Tool Groups (Mocking "Treatment" & "Control") -->
+                        <!-- Tool Groups -->
                         <div class="space-y-6">
 
                             <!-- Group 1: LLMs -->
@@ -842,7 +945,7 @@
                                     </div>
                                 </div>
                                 <div class="flex flex-wrap gap-2">
-                                    <!-- Tool Pill -->
+                                    <!-- Tool Pills -->
                                     <div
                                         class="flex items-center gap-2 border border-[#e6ebf1] rounded px-2 py-1.5 bg-white">
                                         <div class="w-3 h-3 rounded-full bg-green-500"></div>
@@ -906,11 +1009,10 @@
             </div>
         </div>
     </section>
-
     <!-- 
       SECTION 9: SOLUTIONS CAROUSEL
     -->
-    <section class="relative py-24 bg-trnasparent overflow-hidden border-t border-[#e6ebf1]">
+    <section class="relative py-24 bg-trnasparent overflow-hidden border-t border-[#e6ebf1] mb-[200px]">
         <div class="max-w-[1080px] mx-auto px-6 relative bg-white">
 
             <!-- SECTION HEADER & CONTROLS -->
@@ -1160,7 +1262,8 @@
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                             d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z">
                                         </path>
-                                    </svg></div>
+                                    </svg>
+                                </div>
                             </div>
                         </div>
                         <div class="p-6 flex flex-col flex-grow bg-white relative">
@@ -1336,12 +1439,22 @@
     <!-- 
       SECTION 10: TRUST & STATS 
     -->
-    <section class="relative py-24 bg-transparent border-[#e6ebf1]">
-        <div class="max-w-[1080px] mx-auto px-6">
+    <section class="relative bg-white py-[40px] border-t border-[#e6ebf1] ">
+        <div
+            class="absolute inset-0 w-full h-full -skew-y-6 origin-top-right bg-[#f6f9fc] translate-y-32 bg-white -mt-[330px]">
+            <div class="absolute -top-[80px] left-0 w-[600px] h-[150px] pointer-events-none hidden md:block">
+                <div class="absolute bottom-6 right-[-50px] w-[500px] h-[30px] bg-stripe-lightPurple opacity-90"></div>
+                <div
+                    class="absolute bottom-10 right-[120px] w-[250px] h-[30px] bg-stripe-cyan mix-blend-multiply opacity-90">
+                </div>
+            </div>
+        </div>
+
+        <div class="max-w-[1080px] mx-auto px-6 relative z-10">
 
             <!-- SECTION HEADER -->
             <div class="mb-16 max-w-3xl">
-                <span class="text-[#635bff] font-bold text-[15px] mb-4 block tracking-wide">
+                <span class="text-[#635bff] font-bold text-[15px] mb-4 block tracking-wide uppercase">
                     Pourquoi nous faire confiance
                 </span>
                 <h2 class="text-[32px] md:text-[42px] font-bold text-[#0a2540] mb-6 tracking-tight leading-[1.15]">
@@ -1354,7 +1467,6 @@
             </div>
 
             <!-- STATS GRID -->
-            <!-- Using a 4-column grid to match the Stripe density -->
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-y-12 gap-x-8">
 
                 <!-- Stat 1 -->
@@ -1397,7 +1509,7 @@
                     </div>
                 </div>
 
-                <!-- Stat 6 (Extracted "85%" for visual impact) -->
+                <!-- Stat 6 -->
                 <div class="border-l-[3px] border-[#a259ff] pl-5 flex flex-col justify-start">
                     <div class="text-[28px] font-bold text-[#635bff] mb-2 leading-none">85 %</div>
                     <div class="text-[15px] font-medium text-[#425466] leading-normal">
@@ -1415,8 +1527,8 @@
 
             </div>
 
-            <!-- Link/Button (Optional, matching the "Read the report" in image) -->
-            <div class="mt-12">
+            <!-- Link/Button -->
+            <div class="mt-16">
                 <a href="#"
                     class="inline-flex items-center justify-center bg-[#a259ff] text-white px-5 py-2 rounded-full font-semibold text-[14px] hover:bg-[#8f4ce6] transition-all duration-200 shadow-sm hover:shadow-md group">
                     Lire nos études de cas
