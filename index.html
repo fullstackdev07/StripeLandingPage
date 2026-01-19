@@ -104,179 +104,127 @@
 
     <!-- HERO SECTION WRAPPER -->
     <section class="relative pt-24 pb-[250px] z-0">
-
+        
         <!-- BACKGROUND GRADIENT STRIP -->
         <div class="absolute top-0 left-0 w-full h-[150%] pointer-events-none z-0 overflow-hidden">
-            <!-- Adjusted top position and skew to match the diagonal flow behind the card -->
             <div class="absolute top-[500px] -left-[10%] w-[120%] h-[240px] -skew-y-[8deg] opacity-90 animate-gradient-flow"
                 style="background: linear-gradient(115deg, #a259ff 0%, #00d4ff 40%, #00d4ff 60%, #a259ff 100%); background-size: 200% 200%;">
             </div>
         </div>
 
         <div class="relative max-w-[1240px] mx-auto px-6 z-10">
-
+            
             <!-- FLEX CONTAINER -->
-            <div class="flex flex-col md:flex-row  gap-13 items-start">
-
-                <!-- LEFT COLUMN: TEXT (40% Width) -->
-                <!-- Added pt-14 to push text down slightly to align visually with card center -->
-                <div class="w-full md:w-[40%]  relative z-10 mb-[10px]">
-
-                    <!-- Session Badge -->
-                    <div class="inline-flex items-center gap-3 mb-8">
-                        <span
-                            class="bg-[#635bff]/10 text-black lg:text-[12px] text-[8px] px-2.5 py-1 rounded-full font-bold uppercase tracking-wide flex items-center gap-2">
-                            <p>Sessions 2026</p>
-
-                            <!-- White dot -->
-                            <span class="w-1 h-1 bg-black rounded-full"></span>
-
-                            <p>Early-bird registration now open</p>
-
-                            <svg class="w-3 h-3 ml-1 transition-transform group-hover:translate-x-0.5" fill="none"
-                                stroke="currentColor" stroke-width="3" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"></path>
-                            </svg>
-                        </span>
-
+            <div class="flex flex-col md:flex-row gap-12 items-start">
+                
+                <!-- LEFT COLUMN: TEXT CONTENT (TOGGLEABLE) -->
+                <div class="w-full md:w-[40%] lg:w-[60%] relative z-10">
+                    
+                    <!-- HEADER OPTION #1 (Default: 15-min Diagnostic) -->
+                    <div id="header-opt-2" class="hidden">
+                        <!-- Badge -->
+                        <div class="inline-flex items-center gap-3 mb-8">
+                            <span class="bg-[#635bff]/10 text-[#635bff] text-[11px] px-2.5 py-1 rounded-full font-bold uppercase tracking-wide flex items-center gap-2">
+                                <span>Nouveau Service</span>
+                                <span class="w-1 h-1 bg-[#635bff] rounded-full"></span>
+                                <span>100% Gratuit</span>
+                            </span>
+                        </div>
+                        
+                        <h1 class="text-[36px] sm:text-[36px] lg:text-[50px] leading-[1.1] tracking-tight text-[#0a2540] font-bold mb-6">
+                            Diagnostic IA Business : 15 minutes pour révéler des opportunités concrètes.
+                        </h1>
+                        
+                        <p class="text-[17px] leading-relaxed text-[#425466] mb-8">
+                            73% des entreprises peinent à identifier les cas d’usage de l’IA. En un quart d'heure, débloquez vos premiers projets sans jargon : analyse, identification de cas d'usage et feuille de route sur 30 jours.
+                        </p>
+                        
+                        <div class="flex flex-wrap gap-4 items-center">
+                            <a href="#" class="inline-flex items-center bg-[#635bff] text-white font-semibold px-6 py-3 rounded-full text-[15px] hover:bg-[#4b45c6] transition-all shadow-[0_4px_6px_rgba(50,50,93,0.11),0_1px_3px_rgba(0,0,0,0.08)] group w-full sm:w-auto justify-center">
+                                Réservez votre consultation gratuite
+                                <svg class="w-3 h-3 ml-2 group-hover:translate-x-0.5 transition-transform" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"></path></svg>
+                            </a>
+                        </div>
                     </div>
 
-                    <!-- Headline -->
-                    <h1 class="text-[46px] md:text-[55px] leading-[1.05] tracking-[-2px] text-[#0a2540] font-bold mb-6">
-                        Unified, global payments to grow your revenue
-                    </h1>
-
-                    <!-- Description -->
-                    <p class="text-[18px] leading-[1.6] text-[#425466] max-w-[460px] mb-8">
-                        Accept payments online, in person, and around the world with a payments solution built for any
-                        business – from scaling startups to global enterprises.
-                    </p>
-
-                    <!-- CTA Buttons -->
-                    <div class="flex flex-wrap gap-6 items-center">
-                        <a href="#"
-                            class="inline-flex items-center bg-[#9966FF] text-white font-semibold px-5 py-2.5 rounded-full text-[15px] hover:bg-[#4b45c6] transition-all shadow-[0_4px_6px_rgba(50,50,93,0.11),0_1px_3px_rgba(0,0,0,0.08)] group">
-                            Request an invite
-                            <svg class="w-3 h-3 ml-2 group-hover:translate-x-0.5 transition-transform" fill="none"
-                                stroke="currentColor" stroke-width="3" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"></path>
-                            </svg>
-                        </a>
+                    <!-- HEADER OPTION #2 (Hidden: Expert Consultation) -->
+                    <div id="header-opt-1" >
+                        <!-- Badge -->
+                        <div class="inline-flex items-center gap-3 mb-8">
+                            <span class="bg-[#00d4ff]/10 text-black text-[11px] px-2.5 py-1 rounded-full font-bold uppercase tracking-wide flex items-center gap-2">
+                                <span>Consultation Experte</span>
+                                <span class="w-1 h-1 bg-black rounded-full"></span>
+                                <span>Boost ROI</span>
+                            </span>
+                        </div>
+                        
+                        <h1 class="text-[36px] sm:text-[42px] lg:text-[48px] leading-[1.1] tracking-tight text-[#0a2540] font-bold mb-6">
+                            Libérez le potentiel de l’IA dans votre entreprise.
+                        </h1>
+                        
+                        <p class="text-[17px] leading-relaxed text-[#425466] mb-8">
+                            En 1h seulement, identifiez 2 à 3 opportunités d’automatisation par l’IA à fort ROI. Repartez avec un plan d’action clair et une feuille de route pour doper votre productivité dès maintenant.
+                        </p>
+                        
+                        <div class="flex flex-wrap gap-4 items-center">
+                            <a href="#" class="inline-flex items-center bg-[#9966ff] text-white font-semibold px-6 py-3 rounded-full text-[15px] hover:bg-[#1a3b5c] transition-all shadow-[0_4px_6px_rgba(50,50,93,0.11),0_1px_3px_rgba(0,0,0,0.08)] group w-full sm:w-auto justify-center">
+                                Commencer le diagnostic
+                                <svg class="w-3 h-3 ml-2 group-hover:translate-x-0.5 transition-transform" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"></path></svg>
+                            </a>
+                        </div>
                     </div>
+
                 </div>
 
                 <!-- RIGHT COLUMN: CARD (60% Width) -->
                 <div class="w-full md:w-[60%] relative z-20">
-                    <!-- 
-                       CARD CONTAINER
-                       - Max width 640px to match image bulk
-                       - Heavy shadow
-                    -->
-                    <div
-                        class="bg-white rounded-lg shadow-[0_50px_100px_-20px_rgba(50,50,93,0.25),0_30px_60px_-30px_rgba(0,0,0,0.3)] w-full max-w-[640px] ml-auto overflow-hidden border border-[#e6ebf1]">
-
+                    <div class="bg-white rounded-lg shadow-[0_50px_100px_-20px_rgba(50,50,93,0.25),0_30px_60px_-30px_rgba(0,0,0,0.3)] w-full max-w-[640px] ml-auto overflow-hidden border border-[#e6ebf1]">
                         <!-- Card Header -->
-                        <div class="px-8 py-6 border-b border-[#e6ebf1] flex justify-between items-center bg-white">
-                            <span class="text-[14px] font-bold text-[#0a2540] uppercase tracking-wide">KAVHOLM</span>
-                            <div class="text-[13px] text-[#8898aa] font-medium flex items-center gap-1">
-                                <span>Cart</span>
-                                <span class="text-[10px]">›</span>
-                                <span>Billing</span>
-                                <span class="text-[10px]">›</span>
-                                <span class="text-[#0a2540] font-semibold">Confirmation</span>
+                        <div class="px-6 py-5 md:px-8 md:py-6 border-b border-[#e6ebf1] flex justify-between items-center bg-white">
+                            <span class="text-[13px] font-bold text-[#0a2540] uppercase tracking-wide">Plan d'Action</span>
+                            <div class="hidden sm:flex text-[12px] text-[#8898aa] font-medium items-center gap-1">
+                                <span>Analyse</span><span>›</span><span>Stratégie</span><span>›</span><span class="text-[#0a2540] font-semibold">Validation</span>
                             </div>
                         </div>
-
-                        <!-- Card Body -->
-                        <div class="p-8 grid grid-cols-1 sm:grid-cols-[1.3fr_1fr] gap-10">
-
-                            <!-- LEFT: FORM SIDE -->
+                        
+                        <!-- Card Body (Generic UI fit for both contexts) -->
+                        <div class="p-6 md:p-8 grid grid-cols-1 sm:grid-cols-[1.3fr_1fr] gap-8 md:gap-10">
+                            <!-- Left -->
                             <div>
-                                <!-- Shipping Address Block -->
                                 <div class="mb-6">
-                                    <label class="block text-[13px] font-semibold text-[#8898aa] mb-2">Shipping
-                                        Address</label>
-                                    <div
-                                        class="border border-[#e6ebf1] bg-[#f6f9fc]/50 rounded-md p-3.5 text-[14px] text-[#425466] leading-[1.6]">
-                                        <div class="font-semibold text-[#0a2540]">Micaela Patel</div>
-                                        <div>The Warehouse, 7th Floor</div>
-                                        <div>211 Old Street</div>
-                                        <div>London EC1V 9NR</div>
+                                    <label class="block text-[13px] font-semibold text-[#8898aa] mb-2">Objectif Business</label>
+                                    <div class="border border-[#e6ebf1] bg-[#f6f9fc]/50 rounded-md p-3.5 text-[13px] text-[#425466] leading-relaxed">
+                                        <div class="font-semibold text-[#0a2540]">Automatisation RH</div>
+                                        <div>Gain de temps: +10h/semaine</div>
+                                        <div>Outils: Make, ChatGPT</div>
                                     </div>
                                 </div>
-
-                                <!-- Pay With Block -->
                                 <div class="mb-2">
-                                    <label class="block text-[13px] font-semibold text-[#8898aa] mb-2">Pay with</label>
+                                    <label class="block text-[13px] font-semibold text-[#8898aa] mb-2">Priorité</label>
                                     <div class="flex gap-3">
-                                        <!-- Selected Option (Card) -->
-                                        <div
-                                            class="flex-1 border-2 border-[#0a2540] bg-[#f6f9fc] rounded-md py-2.5 px-3 flex items-center justify-center cursor-pointer shadow-sm relative">
-                                            <span class="text-lg mr-2">💳</span>
-                                            <span class="text-[13px] font-bold text-[#0a2540]">Card</span>
+                                        <div class="flex-1 border-2 border-[#0a2540] bg-[#f6f9fc] rounded-md py-2 px-3 flex items-center justify-center cursor-pointer shadow-sm">
+                                            <span class="text-lg mr-2">🔥</span><span class="text-[13px] font-bold text-[#0a2540]">Haute</span>
                                         </div>
-                                        <!-- Unselected Option (Klarna) -->
-                                        <div
-                                            class="flex-1 border border-[#e6ebf1] bg-white rounded-md py-2.5 px-3 flex items-center justify-center cursor-pointer hover:bg-gray-50 hover:border-gray-300 transition-colors">
-                                            <span class="text-[13px] font-bold text-[#0a2540] flex items-center">
-                                                <span class="text-[#ffb3c7] font-black mr-0.5">K.</span>Klarna
-                                            </span>
+                                        <div class="flex-1 border border-[#e6ebf1] bg-white rounded-md py-2 px-3 flex items-center justify-center cursor-pointer opacity-60">
+                                            <span class="text-[13px] font-bold text-[#0a2540]">Moyenne</span>
                                         </div>
                                     </div>
-
-                                    <!-- Card Details Inputs (Simplified Visuals) -->
-                                    <div class="mt-4 space-y-3">
-                                        <div
-                                            class="border border-[#e6ebf1] rounded-md p-3 flex items-center justify-between bg-white shadow-sm">
-                                            <span class="text-[#0a2540] text-sm tracking-widest font-mono">1234 1234
-                                                1234 1234</span>
-                                            <div class="flex gap-1">
-                                                <div class="w-6 h-4 bg-[#1a1f36] rounded-sm"></div>
-                                                <div class="w-6 h-4 bg-[#eb001b] rounded-sm"></div>
-                                            </div>
-                                        </div>
-                                        <div class="flex gap-3">
-                                            <div
-                                                class="w-1/2 border border-[#e6ebf1] rounded-md p-3 bg-white text-sm text-[#8898aa]">
-                                                MM / YY</div>
-                                            <div
-                                                class="w-1/2 border border-[#e6ebf1] rounded-md p-3 bg-white text-sm text-[#8898aa] flex justify-between">
-                                                CVC <span class="text-gray-300">123</span>
-                                            </div>
-                                        </div>
+                                    <div class="mt-4 space-y-2">
+                                        <div class="h-2 w-full bg-gray-100 rounded-full overflow-hidden"><div class="h-full bg-[#635bff] w-3/4"></div></div>
+                                        <div class="flex justify-between text-[11px] text-[#8898aa]"><span>Faisabilité</span><span>75%</span></div>
                                     </div>
                                 </div>
                             </div>
-
-                            <!-- RIGHT: PRODUCT SIDE -->
+                            <!-- Right -->
                             <div class="flex flex-col">
-                                <!-- Image Container -->
-                                <div
-                                    class="bg-[#f6f9fc] rounded-lg h-[160px] mb-5 flex items-center justify-center relative overflow-hidden">
-                                    <div class="text-[60px]">🪑</div>
+                                <div class="bg-[#f6f9fc] rounded-lg h-[140px] mb-4 flex items-center justify-center text-[50px]">🚀</div>
+                                <div class="font-bold text-[14px] mb-4 text-[#0a2540]">ROI Estimé</div>
+                                <div class="space-y-2 mb-4 border-b border-[#e6ebf1] pb-4 text-[13px] text-[#8898aa]">
+                                    <div class="flex justify-between"><span>Coût</span><span>0€</span></div>
+                                    <div class="flex justify-between"><span>Gain</span><span>Immédiat</span></div>
                                 </div>
-
-                                <div class="font-bold text-[14px] mb-4 text-[#0a2540]">Betala Wooden Chair</div>
-
-                                <div class="space-y-2 mb-4 border-b border-[#e6ebf1] pb-4">
-                                    <div class="flex justify-between text-[13px] text-[#8898aa]">
-                                        <span>Subtotal</span><span>£240.00</span>
-                                    </div>
-                                    <div class="flex justify-between text-[13px] text-[#8898aa]">
-                                        <span>VAT (20%)</span><span>£48.00</span>
-                                    </div>
-                                </div>
-
-                                <div class="flex justify-between text-[14px] font-bold text-[#0a2540] mb-6">
-                                    <span>Total</span><span>£288.00</span>
-                                </div>
-
-                                <button
-                                    class="w-full bg-[#0a2540] text-white border-none py-3 rounded-md font-bold text-[14px] cursor-pointer hover:bg-[#1a3b5c] transition-colors shadow-lg mt-auto">
-                                    Pay £288.00
-                                </button>
+                                <button class="w-full bg-[#0a2540] text-white border-none py-3 rounded-md font-bold text-[14px] cursor-pointer hover:bg-[#1a3b5c] transition-colors shadow-lg mt-auto">Valider le plan</button>
                             </div>
-
                         </div>
                     </div>
                 </div>
@@ -1529,6 +1477,22 @@
     </section>
 
     <script>
+
+        let isOption1 = true;
+        
+        function toggleHeader() {
+            const opt1 = document.getElementById('header-opt-1');
+            const opt2 = document.getElementById('header-opt-2');
+            
+            if (isOption1) {
+                opt1.classList.add('hidden');
+                opt2.classList.remove('hidden');
+            } else {
+                opt1.classList.remove('hidden');
+                opt2.classList.add('hidden');
+            }
+            isOption1 = !isOption1;
+        }
         document.addEventListener('DOMContentLoaded', () => {
             const carousel = document.getElementById('cardCarousel');
             const leftBtn = document.getElementById('slideLeft');
