@@ -88,14 +88,6 @@
                     class="text-[15px] font-semibold text-stripe-dark hover:opacity-70 transition-opacity duration-200">Pricing</a>
             </div>
             <div class="flex items-center gap-5">
-                <a href="#"
-                    class="group flex items-center gap-2 text-[15px] font-semibold text-stripe-dark hover:opacity-70 transition-opacity duration-200 hidden sm:flex">
-                    <span class="text-[#9966ff]">Sign in</span>
-                    <svg class="w-3 h-3 transform transition-transform group-hover:translate-x-0.5" fill="none"
-                        stroke="#9966FF" stroke-width="3" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
-                    </svg>
-                </a>
 
                 <a href="#"
                     class="group flex items-center bg-[#a375ff] text-white px-4 py-2 rounded-full font-semibold text-[14px] hover:bg-[#534bd8] transition-colors duration-200">
@@ -124,16 +116,16 @@
         <div class="relative max-w-[1240px] mx-auto px-6 z-10">
 
             <!-- FLEX CONTAINER -->
-            <div class="flex flex-col md:flex-row gap-13 items-start">
+            <div class="flex flex-col md:flex-row  gap-13 items-start">
 
                 <!-- LEFT COLUMN: TEXT (40% Width) -->
                 <!-- Added pt-14 to push text down slightly to align visually with card center -->
-                <div class="w-full md:w-[40%]  relative z-10">
+                <div class="w-full md:w-[40%]  relative z-10 mb-[10px]">
 
                     <!-- Session Badge -->
                     <div class="inline-flex items-center gap-3 mb-8">
                         <span
-                            class="bg-[#635bff]/10 text-black text-[11px] px-2.5 py-1 rounded-full font-bold uppercase tracking-wide flex items-center gap-2">
+                            class="bg-[#635bff]/10 text-black lg:text-[12px] text-[8px] px-2.5 py-1 rounded-full font-bold uppercase tracking-wide flex items-center gap-2">
                             <p>Sessions 2026</p>
 
                             <!-- White dot -->
@@ -362,10 +354,10 @@
         <div class="absolute inset-0 w-full h-full -skew-y-6 origin-top-left bg-[#f6f9fc] -z-10 translate-y-24">
             <div class="absolute -top-[10px] left-0 w-full h-[60px] pointer-events-none">
                 <div class="max-w-[1080px] mx-auto px-6 relative h-full">
-                    <div class="absolute bottom-6 -left-[100px] w-[500px] h-[30px] bg-stripe-lightPurple opacity-90">
+                    <div class="absolute bottom-6 -left-[100px] w-[250px] lg:w-[500px] h-[30px] bg-stripe-lightPurple opacity-90">
                     </div>
                     <div
-                        class="absolute bottom-10 -left-[40px] w-[250px] h-[30px] bg-stripe-cyan mix-blend-multiply opacity-90">
+                        class="absolute bottom-10 -left-[40px] w-[125px] lg:w-[250px] h-[30px] bg-stripe-cyan mix-blend-multiply opacity-90">
                     </div>
                 </div>
             </div>
@@ -488,9 +480,9 @@
             class="absolute top-[-80px] right-0 w-full h-[220px] bg-white -skew-y-6 origin-bottom-right z-10 -mt-[140px]">
             <div class="absolute -top-[10px] right-0 w-full h-[60px] pointer-events-none">
                 <div class="w-full mx-[10px] px-6 relative h-full">
-                    <div class="absolute -bottom-1 right-0 w-[250px] h-[30px]  bg-stripe-lightPurple opacity-90"></div>
+                    <div class="absolute -bottom-1 right-0 lg:w-[250px] w-[125px] h-[30px]  bg-stripe-lightPurple opacity-90"></div>
                     <div
-                        class="absolute bottom-[10px] right-0 w-[500px] h-[40px] bg-stripe-cyan mix-blend-multiply  opacity-90">
+                        class="absolute bottom-[10px] right-0 lg:w-[500px] w-[250px] h-[40px] bg-stripe-cyan mix-blend-multiply  opacity-90">
                     </div>
                 </div>
             </div>
@@ -788,12 +780,6 @@
     <!-- 
       SECTION 7: CTA (Matched to "Stripe named a Leader" UI)
     -->
-
-    <!-- 
-      SECTION 7: CTA 
-      - Fixed Visibility of Transition Bars
-      - Angled Top Edge
-    -->
     <section class="relative py-24 mb-[150px] mt-[100px] z-10">
 
         <!-- 
@@ -804,10 +790,10 @@
         <div class="absolute inset-0 w-full h-full bg-[#f6f9fc] -skew-y-6 origin-top-left -z-10">
             <div class="absolute top-[-30px] left-[-20px] w-[400px] h-[100px] pointer-events-none hidden md:block">
                 <!-- Purple Bar (Back) -->
-                <div class="absolute top-[10px] left-0 w-[350px] h-[35px] bg-[#a259ff] opacity-90"></div>
+                <div class="absolute top-[10px] left-0 lg:w-[350px] w-[175px] h-[35px] bg-[#a259ff] opacity-90"></div>
                 <!-- Cyan Bar (Front) -->
                 <div
-                    class="absolute top-[35px] left-[40px] w-[250px] h-[35px] bg-[#00d4ff] mix-blend-multiply opacity-90">
+                    class="absolute top-[35px] left-[40px] lg:w-[250px] w-[125px] h-[35px] bg-[#00d4ff] mix-blend-multiply opacity-90">
                 </div>
             </div>
 
@@ -854,9 +840,9 @@
 
             <div class="absolute -top-[10px] right-0 w-full h-[60px] pointer-events-none">
                 <div class="w-full mx-[10px] px-6 relative h-full">
-                    <div class="absolute -bottom-1 right-0 w-[250px] h-[30px]  bg-stripe-lightPurple opacity-90"></div>
+                    <div class="absolute -bottom-1 right-0 lg:w-[250px] w-[125px] h-[30px]  bg-stripe-lightPurple opacity-90"></div>
                     <div
-                        class="absolute bottom-[10px] right-0 w-[500px] h-[40px] bg-[#11EFE3] mix-[#c2ffff] opacity-90">
+                        class="absolute bottom-[10px] right-0 lg:w-[500px] w-[250px] h-[40px] bg-[#11EFE3] mix-[#c2ffff] opacity-90">
                     </div>
                 </div>
 
@@ -1443,9 +1429,9 @@
         <div
             class="absolute inset-0 w-full h-full -skew-y-6 origin-top-right bg-[#f6f9fc] translate-y-32 bg-white -mt-[330px]">
             <div class="absolute -top-[80px] left-0 w-[600px] h-[150px] pointer-events-none hidden md:block">
-                <div class="absolute bottom-6 right-[-50px] w-[500px] h-[30px] bg-stripe-lightPurple opacity-90"></div>
+                <div class="absolute bottom-6 right-[-50px] lg:w-[500px] w-[250px] h-[30px] bg-stripe-lightPurple opacity-90"></div>
                 <div
-                    class="absolute bottom-10 right-[120px] w-[250px] h-[30px] bg-stripe-cyan mix-blend-multiply opacity-90">
+                    class="absolute bottom-10 right-[120px] lg:w-[250px] w-[125px] h-[30px] bg-stripe-cyan mix-blend-multiply opacity-90">
                 </div>
             </div>
         </div>
